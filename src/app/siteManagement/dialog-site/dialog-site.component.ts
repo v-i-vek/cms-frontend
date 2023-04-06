@@ -51,10 +51,6 @@ export class DialogSiteComponent implements OnInit {
    
   }
  
- 
- 
-
-
   //method for posting
   
   
