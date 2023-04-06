@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { DialogSiteComponent } from '../dialog-site/dialog-site.component';
 import { MatDialog, MatDialogRef, } from '@angular/material/dialog';
 import { SiteManageService } from 'app/services/site-manage.service';
@@ -41,8 +41,8 @@ export class siteComponent implements OnInit {
         width: '30%',
         // height: '210px',
         data: row,
-        backdropClass: 'confirmDialogComponent',
-        hasBackdrop: true,
+        // backdropClass: 'confirmDialogComponent',
+        // hasBackdrop: true,
       }
     );
 
