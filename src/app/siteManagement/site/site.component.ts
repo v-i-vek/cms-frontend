@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogSiteComponent } from '../dialog-site/dialog-site.component';
-import { MatDialog, } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, } from '@angular/material/dialog';
 import { SiteManageService } from 'app/services/site-manage.service';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
@@ -35,11 +35,24 @@ export class siteComponent implements OnInit {
 
   editSiteDetails(row:any){
 
-    
-    this.dialog.open(DialogSiteComponent),{
-      width:"30%",
-      data:row
-    }
+    const ref: MatDialogRef<DialogSiteComponent> = this.dialog.open(
+      DialogSiteComponent,
+      {
+        width: '30%',
+        // height: '210px',
+        data: row,
+        backdropClass: 'confirmDialogComponent',
+        hasBackdrop: true,
+      }
+    );
+
+    ref.afterClosed().subscribe((res)=>{
+      console.log(res);
+      if(res) {
+        
+      }
+      
+    })
   }
 
   

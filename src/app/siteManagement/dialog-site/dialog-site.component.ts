@@ -19,30 +19,38 @@ export class DialogSiteComponent implements OnInit {
 
   constructor(
     private siteService: SiteManageService,
-    @Inject(MAT_DIALOG_DATA) public editData:any,
-    private dialogref: MatDialogRef<DialogSiteComponent>
-  ) {}
+    private dialogref: MatDialogRef<DialogSiteComponent>,
+    @Inject(MAT_DIALOG_DATA) public editData
+  ) {
+    console.log(editData);
+    
+    
+  }
+
+
 
   ngOnInit(): void {
     
+    // console.log(this.editData);
     
     this.site_submit_form = new FormGroup({
       name: new FormControl("", [Validators.required]),
       category: new FormControl("", [Validators.required]),
       location: new FormControl("", [Validators.required]),
     });
-    console.log(this.editData)
+    // console.log(this.editData)
     
-    if(this.editData){
-    this.site_submit_form.controls['name'].setValue(this.editData)
-    this.site_submit_form.controls['category'].setValue(this.editData)
-    this.site_submit_form.controls['location'].setValue(this.editData)
+    // if(this.editData){
+    // this.site_submit_form.controls['name'].setValue(this.editData)
+    // this.site_submit_form.controls['category'].setValue(this.editData)
+    // this.site_submit_form.controls['location'].setValue(this.editData)
 
 
       
-    }
+    // }
    
   }
+ 
  
  
 
@@ -56,7 +64,7 @@ export class DialogSiteComponent implements OnInit {
       next: (res) => {
         alert("site Added Successfully");
         this.site_submit_form.reset();
-        this.dialogref.close();
+        // this.dialogref.close();
       },
       error: () => {
         alert("site is note edded");
@@ -67,6 +75,9 @@ export class DialogSiteComponent implements OnInit {
   // getting all data
  
   show() {
+    // api
+    // 
+    this.dialogref.close(true);
     console.warn(this.site_submit_form.value);
   }
 
