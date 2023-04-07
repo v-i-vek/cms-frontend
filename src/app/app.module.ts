@@ -24,6 +24,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -50,6 +51,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     AdminLayoutComponent,
   
     DialogSiteComponent,
+     
 
   ],
   providers: [],

@@ -29,6 +29,10 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 
 @NgModule({
   imports: [
@@ -53,7 +57,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule ,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+    
+    
   ],
   declarations: [
     DashboardComponent,

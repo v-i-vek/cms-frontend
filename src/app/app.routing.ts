@@ -4,13 +4,21 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { siteComponent } from './siteManagement/site/site.component';
 
 const routes: Routes =[
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+  {
+    path:'sitemanage',
+    component:siteComponent,
+   
+  },
+  
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [{

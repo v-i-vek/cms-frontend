@@ -32,17 +32,17 @@
 
 
 
-      <mat-form-field appearance="outline">
+      <!-- <mat-form-field appearance="outline">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field> -->
       <div mat-dialog-actions [align]="'end'">
 
         <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-        <button mat-raised-button color="primary" (click)="show()">save</button>
+        <button mat-raised-button color="primary" (click)="show()">{{dialogbtn}}</button>
 
 
     </div>
