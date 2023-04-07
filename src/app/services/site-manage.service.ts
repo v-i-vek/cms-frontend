@@ -9,8 +9,8 @@ export class SiteManageService {
 
   Posturl = 'http://localhost:3001/postSite/'
   GetUrl = 'http://localhost:3001/getAllDetails'
-  patchUrl = 'http://localhost:3001/updateSite/:id'
-  deleteUrl ='http://localhost:3001/deleteSite/:id'
+  patchUrl = 'http://localhost:3001/updateSite/'
+  deleteUrl ='http://localhost:3001/deleteSite/'
 
 
   constructor( private http : HttpClient) { }
@@ -22,10 +22,11 @@ export class SiteManageService {
     return this.http.get(this.GetUrl)
   }
   siteUpdate(data:any,id:any){
-    return this.http.put(`${this.patchUrl}${id}`,data)
+
+    return this.http.patch(this.patchUrl+id,data)
   }
-  siteDelete(){
-    return this.http.delete(this.deleteUrl)
+  siteDelete(id:any){
+    return this.http.delete(this.deleteUrl+id)
   }
 }
 

@@ -14,7 +14,8 @@ const routes: Routes =[
   },
   {
     path:'sitemanage',
-    component:siteComponent
+    component:siteComponent,
+   
   },
   
   {
