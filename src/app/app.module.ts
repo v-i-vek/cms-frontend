@@ -25,6 +25,7 @@ import { UserDialogComponent } from './ManageUser/user-dialog/user-dialog.compon
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import { DialogSerComponent } from './service-management/dialog-ser/dialog-ser.component';
 
 
 
@@ -53,7 +54,7 @@ import {MatSortModule} from '@angular/material/sort';
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
     
   ],
   declarations: [
@@ -62,7 +63,8 @@ import {MatSortModule} from '@angular/material/sort';
   
     DialogSiteComponent,
     AddUserComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    DialogSerComponent
      
 
   ],

@@ -35,32 +35,20 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field> -->
+      <div mat-dialog-actions [align]="'end'">
 
-    <mat-form-field appearance="">
-      <mat-label></mat-label>
-      <!-- <input
-        matInput
-        type="file"
-        class="file-upload"
-        (change)="onFileSelected($event)"
-        formControlName="image"
-      /> -->
+        <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
+        <button mat-raised-button color="primary" (click)="show()">{{dialogbtn}}</button>
 
-      <input
-        matInput
-        type="file"
-        (change)="onFileSelected($event)"
-        placeholder="Upload file"
-        accept=".jpg,.png,.jpeg"
-        formControlName="image"
-      />
-    </mat-form-field>
 
-    <div mat-dialog-actions [align]="'end'">
-      <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-      <button mat-raised-button color="primary" (click)="show()">
-        {{ dialogbtn }}
-      </button>
     </div>
-  </form>
+</form>
+
+    
 </div>
+
+
+
+
+
+

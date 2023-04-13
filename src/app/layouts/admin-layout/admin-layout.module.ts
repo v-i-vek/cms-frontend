@@ -6,8 +6,9 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import {  servicecmComponent } from '../../service-management/servicecm/servicecm.component';
 import { IconsComponent } from '../../icons/icons.component';
+import { MapsComponent } from '../../maps/maps.component';
 import { siteComponent } from '../../siteManagement/site/site.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -67,8 +68,9 @@ import {MatSortModule} from '@angular/material/sort';
     DashboardComponent,
     UserProfileComponent,
     TableListComponent,
-    TypographyComponent,
+    servicecmComponent,
     IconsComponent,
+    MapsComponent,
     siteComponent,
     UpgradeComponent,
   ]
