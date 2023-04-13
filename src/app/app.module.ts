@@ -20,6 +20,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AddUserComponent } from './ManageUser/add-user/add-user.component';
+import { UserDialogComponent } from './ManageUser/user-dialog/user-dialog.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 
 
 
@@ -44,13 +50,19 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatNativeDateModule,
     MatDatepickerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
   
     DialogSiteComponent,
+    AddUserComponent,
+    UserDialogComponent
      
 
   ],
