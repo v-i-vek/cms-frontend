@@ -22,7 +22,7 @@ export class DialogSiteComponent implements OnInit {
   dialogbtn: string = "save";
   siteData: any;
   site_submit_form!: FormGroup;
-  editImage:any
+  editImage: any;
 
   constructor(
     private siteService: SiteManageService,
@@ -38,72 +38,64 @@ export class DialogSiteComponent implements OnInit {
       // fileSource: new FormControl("", [Validators.required]),
     });
   }
-
+// for image selection from the form
   onFileSelected(event) {
     if (event.target.files.length > 0) {
       this.site_submit_form.value.image = event.target.files[0];
-      this.editImage = this.site_submit_form
-
-      // this.site_submit_form.patchValue({ fileSource: file });
-      // console.log(this.site_submit_form.value);
-      // console.log(file + "coming from the image click");
+      this.editImage = this.site_submit_form;
     }
   }
 
   ngOnInit(): void {
     //this is inserting data from table to dialog box
     if (this.editData) {
-      console.log("hello coming here")
-     
-      this.dialogbtn = "update"
-      let edifFd = new FormData()
+      console.log("hello coming here");
+
+      this.dialogbtn = "update";
+      let edifFd = new FormData();
 
       this.site_submit_form.controls["name"].setValue(this.editData.name);
-      this.site_submit_form.controls["category"].setValue(this.editData.category);
-      this.site_submit_form.controls["location"].setValue(this.editData.location);
-      this.site_submit_form.controls["image"].setValue(this.editImage)
+      this.site_submit_form.controls["category"].setValue(
+        this.editData.category
+      );
+      this.site_submit_form.controls["location"].setValue(
+        this.editData.location
+      );
+      this.site_submit_form.controls["image"].setValue(this.editImage);
     }
   }
 
-  
-
   //method for posting
   sitePostData(data: any) {
-    if(!this.editData){
-      if(this.site_submit_form.valid){
-        console.log('calling post method')
+    if (!this.editData) {
+      if (this.site_submit_form.valid) {
+        console.log("calling post method");
         let formData = new FormData();
-    formData.append("image", this.site_submit_form.value.image);
-    formData.append("name", this.site_submit_form.value.name);
-    formData.append("location", this.site_submit_form.value.location);
-    formData.append("category", this.site_submit_form.value.category);
+        formData.append("image", this.site_submit_form.value.image);
+        formData.append("name", this.site_submit_form.value.name);
+        formData.append("location", this.site_submit_form.value.location);
+        formData.append("category", this.site_submit_form.value.category);
 
-    this.siteService.sitePost(formData).subscribe({
-      next: (res) => {
-        alert("site Added Successfully");
-        this.site_submit_form.reset();
-       
+        this.siteService.sitePost(formData).subscribe({
+          next: (res) => {
+            alert("site Added Successfully");
+            this.site_submit_form.reset();
 
-        this.dialogref.close("save");
-      
+            this.dialogref.close("save");
 
-        // this.dialogref.close();
-      },
-      error: (err) => {
-        alert("site is not added");
-        console.log(err);
-      },
-    });
+            // this.dialogref.close();
+          },
+          error: (err) => {
+            alert("site is not added");
+            console.log(err);
+          },
+        });
       }
-     
-      }
-      else {
-        console.log("coming in update file");
-        
-        this.updateProduct()
+    } else {
+      console.log("coming in update file");
+
+      this.updateProduct();
     }
-     
-    
   }
 
   //code for updating the site
@@ -114,7 +106,6 @@ export class DialogSiteComponent implements OnInit {
       .siteUpdate(this.site_submit_form.value, this.editData._id)
       .subscribe({
         next: (res) => {
-          
           alert("site updated successfully");
           this.site_submit_form.reset();
           this.dialogref.close("update");
@@ -127,8 +118,6 @@ export class DialogSiteComponent implements OnInit {
   }
 
   show() {
-    // api
-    //
     this.dialogref.close(true);
   }
 }

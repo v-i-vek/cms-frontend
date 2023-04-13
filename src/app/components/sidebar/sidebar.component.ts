@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/typography', title: 'Service',  icon:'library_books', class: '' },
     { path: '/icons', title: 'Role-manegement',  icon:'bubble_chart', class: '' },
      { path: '/manageuser', title: 'Manage-user',  icon:'group_add', class: '' },
-    { path: '/notifications', title: 'Sites',  icon:'library_add', class: '' },
+    { path: '/siteManagement', title: 'Sites',  icon:'library_add', class: '' },
     { path: '/upgrade', title: 'Logout',  icon:'unarchive', class: 'active-pro' },
 ];
 

@@ -10,10 +10,10 @@ import { url } from 'inspector';
 export class ManageUserServiceService {
 
  Port = 3000
-  baseUrl = `http://localhost:${this.Port}/AddUser/`;
+  PostUrl = `http://localhost:${this.Port}/AddUser/`;
 
-  GetUrl = "http://localhost:3000/getAllDetails";
-  patchUrl = "http://localhost:3000/updateSite/";
+  GetUrl = `http://localhost:${this.Port}/AddUser`;
+  patchUrl = `http://localhost:${this.Port}/AddUser/`;
   deleteUrl = "http://localhost:3000/deleteSite/";
 
   constructor(private http:HttpClient) { }
@@ -21,7 +21,14 @@ export class ManageUserServiceService {
 
 
 AddUser(data:any){
-  return this.http.post(this.baseUrl,data)
+  return this.http.post(this.PostUrl,data)
+}
+getUser(){
+  return this.http.get(this.GetUrl)
+}
+
+updateUser(data:any,id:any){
+  return this.http.put(this.patchUrl+id,data)
 }
 
 
