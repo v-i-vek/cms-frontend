@@ -1,0 +1,58 @@
+
+
+<h1 mat-dialog-title> Add sites</h1>
+
+
+    
+<div mat-dialog-content>
+
+    <form [formGroup]="site_submit_form" (ngSubmit)="sitePostData(site_submit_form.value)">
+        
+        
+        <mat-form-field appearance="outline">
+        <mat-label>site Name</mat-label>
+        <input matInput placeholder="Enter site-name" formControlName="name">
+        
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>category</mat-label>
+        <mat-select formControlName="category">
+        <mat-option value="Industrial">Industrial</mat-option>
+        <mat-option value="Commercial">Commercial</mat-option>
+        <mat-option value="Residential">Residential</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>location</mat-label>
+        <input matInput placeholder="enter location of site" formControlName="location">
+      </mat-form-field>
+
+
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <div mat-dialog-actions [align]="'end'">
+
+        <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
+        <button mat-raised-button color="primary" (click)="show()">{{dialogbtn}}</button>
+
+
+    </div>
+</form>
+
+    
+</div>
+
+
+
+
+
+
