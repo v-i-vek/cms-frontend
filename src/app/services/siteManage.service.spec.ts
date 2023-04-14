@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SiteManageService } from './site-manage.service';
+import { SiteManageService } from './siteManage.service';
 
 describe('SiteManageService', () => {
   let service: SiteManageService;
