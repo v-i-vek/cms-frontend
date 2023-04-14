@@ -25,7 +25,7 @@ import { UserDialogComponent } from './ManageUser/userDialog/userDialog.componen
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { DialogSerComponent } from './service-management/dialogService/dialogService.component';
+import { DialogSerComponent } from './serviceManagement/dialogService/dialogService.component';
 
 
 
