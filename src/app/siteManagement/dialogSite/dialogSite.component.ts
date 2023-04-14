@@ -6,17 +6,16 @@ import {
   Validators,
   FormBuilder,
 } from "@angular/forms";
-import { SiteManageService } from "app/services/site-manage.service";
+import { SiteManageService } from "app/services/siteManage.service";
 import { MatDialogRef } from "@angular/material/dialog";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { isModuleNamespaceObject } from "util/types";
-import { log } from "console";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 
 @Component({
   selector: "app-dialog-site",
-  templateUrl: "./dialog-site.component.html",
-  styleUrls: ["./dialog-site.component.scss"],
+  templateUrl: "./dialogSite.component.html",
+  styleUrls: ["./dialogSite.component.scss"],
 })
 export class DialogSiteComponent implements OnInit {
   dialogbtn: string = "save";
@@ -32,9 +31,9 @@ export class DialogSiteComponent implements OnInit {
   ) {
     this.site_submit_form = new FormGroup({
       name: new FormControl("", [Validators.required]),
-      location: new FormControl("", [Validators.required]),
-      category: new FormControl("", [Validators.required]),
-      image: new FormControl("", [Validators.required]),
+      location: new FormControl("", [Validators.required,]),
+      category: new FormControl("", [Validators.required,]),
+      image: new FormControl("", [Validators.required,]),
       // fileSource: new FormControl("", [Validators.required]),
     });
   }
@@ -49,8 +48,6 @@ export class DialogSiteComponent implements OnInit {
   ngOnInit(): void {
     //this is inserting data from table to dialog box
     if (this.editData) {
-      console.log("hello coming here");
-
       this.dialogbtn = "update";
       let edifFd = new FormData();
 
@@ -69,7 +66,6 @@ export class DialogSiteComponent implements OnInit {
   sitePostData(data: any) {
     if (!this.editData) {
       if (this.site_submit_form.valid) {
-        console.log("calling post method");
         let formData = new FormData();
         formData.append("image", this.site_submit_form.value.image);
         formData.append("name", this.site_submit_form.value.name);
@@ -87,21 +83,17 @@ export class DialogSiteComponent implements OnInit {
           },
           error: (err) => {
             alert("site is not added");
-            console.log(err);
           },
         });
       }
     } else {
-      console.log("coming in update file");
-
       this.updateProduct();
     }
   }
 
   //code for updating the site
   updateProduct() {
-    console.log(this.editData._id);
-    console.log(this.site_submit_form.value);
+
     this.siteService
       .siteUpdate(this.site_submit_form.value, this.editData._id)
       .subscribe({
@@ -112,7 +104,6 @@ export class DialogSiteComponent implements OnInit {
         },
         error: (e) => {
           alert("error occured");
-          console.log(e);
         },
       });
   }

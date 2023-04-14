@@ -1,19 +1,19 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { UserDialogComponent } from "../user-dialog/user-dialog.component";
+import { UserDialogComponent } from "../userDialog/userDialog.component";
 
 import { AfterViewInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-import { ManageUserServiceService } from "app/services/manage-user-service.service";
+import { ManageUserServiceService } from "app/services/manageUserService.service";
 import { data } from "jquery";
 
 @Component({
   selector: "app-add-user",
-  templateUrl: "./add-user.component.html",
-  styleUrls: ["./add-user.component.scss"],
+  templateUrl: "./addUser.component.html",
+  styleUrls: ["./addUser.component.scss"],
 })
 export class AddUserComponent implements OnInit {
   displayedColumns: string[] = ["name", "email", "action"];
@@ -30,7 +30,6 @@ export class AddUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("worker");
     this.getAllUser();
   }
 
@@ -43,17 +42,13 @@ export class AddUserComponent implements OnInit {
   //getting the value of the user from the data base
 
   getAllUser() {
-    console.log("is coming");
     this.http.getUser().subscribe({
       next: (res: any) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log("manageUser..........", res);
       },
-      error: (error) => {
-        console.log(error);
-      },
+      error: (error) => {},
     });
   }
   //editing the user details

@@ -7,24 +7,22 @@ import { data } from 'jquery';
 })
 export class SerServiceService {
   
-  Posturl = 'http://localhost:3000/services'
-  GetUrl = 'http://localhost:3000/service'
-  patchUrl = 'http://localhost:3000/services/'
-  deleteUrl ='http://localhost:3000/services/'
+  baseUrl = 'http://localhost:3000/services'
+  
 
   constructor(private http : HttpClient) { }
   servicePost(data:any){
-    return this.http.post(this.Posturl,data)
+    return this.http.post(this.baseUrl+"services",data)
     }
     serviceGet(){
-      return this.http.get(this.GetUrl)
+      return this.http.get(this.baseUrl+"service")
     }
     serviceUpdate(data:any,id:any){
   
-      return this.http.patch(this.patchUrl+id,data)
+      return this.http.patch(this.baseUrl+"services"+id,data)
     }
     serviceDelete(id:any){
-      return this.http.delete(this.deleteUrl+id)
+      return this.http.delete(this.baseUrl+"services"+id)
     }
   }
   

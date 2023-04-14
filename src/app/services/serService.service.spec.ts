@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SiteManageService } from './site-manage.service';
+import { SerServiceService } from './serService.service';
 
-describe('SiteManageService', () => {
-  let service: SiteManageService;
+describe('SerServiceService', () => {
+  let service: SerServiceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SiteManageService);
+    service = TestBed.inject(SerServiceService);
   });
 
   it('should be created', () => {
