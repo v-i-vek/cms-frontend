@@ -18,6 +18,8 @@ import { data } from "jquery";
 export class AddUserComponent implements OnInit {
   displayedColumns: string[] = ["name", "email", "action"];
 
+  data:any
+
   url: any = "http://localhost:3000/"; // for giving the path of the image
   dataSource!: MatTableDataSource<any>;
 
@@ -66,5 +68,17 @@ export class AddUserComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  sendMail(row){
+    this.http.sendMail(row._id).subscribe({
+      next:()=>{
+        alert("password is send to "+row.email)
+
+      },
+      error:()=>{
+        alert("unable to send password to " + row.email)
+
+      }
+    })
   }
 }

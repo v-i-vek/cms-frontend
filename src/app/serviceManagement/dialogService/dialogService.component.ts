@@ -29,9 +29,9 @@ export class DialogSerComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public editData: any
   ) {
     this.service_submit_form = new FormGroup({
-      name: new FormControl("", [Validators.required]),
-      description: new FormControl("", [Validators.required]),
-      customize: new FormControl("", [Validators.required]),
+      name: new FormControl("", ),
+      description: new FormControl(""),
+      customize: new FormControl(""),
     });
   }
 

@@ -11,10 +11,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
     { path: '/user-profile', title: 'Profile',  icon:'person', class: '' },
     { path: '/table-list', title: 'Material',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Service',  icon:'library_books', class: '' },
+    { path: '/service', title: 'Service',  icon:'library_books', class: '' },
     { path: '/icons', title: 'Role-manegement',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Manage-user',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Sites',  icon:'notifications', class: '' },
+    { path: '/addUser', title: 'Manage-user',  icon:'location_on', class: '' },
+    { path: '/site', title: 'Sites',  icon:'notifications', class: '' },
     { path: '/upgrade', title: 'Logout',  icon:'unarchive', class: 'active-pro' },
 ];
 

@@ -25,8 +25,8 @@ export class UserDialogComponent implements OnInit {
   customBtn: String = "save";
 
   AddUser = new FormGroup({
-    name: new FormControl(""),
-    email: new FormControl(""),
+    name: new FormControl("",[Validators.required]),
+    email: new FormControl("",[Validators.required]),
   });
 
   ngOnInit(): void {
