@@ -9,6 +9,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { siteComponent } from '../../siteManagement/site/site.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { AddUserComponent } from 'app/ManageUser/addUser/addUser.component';
+import { LogoutComponent } from 'app/logout/logout.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -60,5 +61,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: AddUserComponent },
     { path: 'notifications',  component: siteComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'logout',        component: LogoutComponent },
 ];

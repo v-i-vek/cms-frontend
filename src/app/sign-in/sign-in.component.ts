@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
         const user = res.user
         console.log("data is saved",res) 
         localStorage.setItem('token',user);
-         this.router.navigate(['/site'])
+         this.router.navigate(['/dashboard']);  
       },
       error:(e)=>console.log("error::",e)
     })
