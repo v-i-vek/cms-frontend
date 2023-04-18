@@ -5,6 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { siteComponent } from './siteManagement/site/site.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { LogoutComponent } from './logout/logout.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes =[
   {
@@ -16,6 +19,22 @@ const routes: Routes =[
     path:'sitemanage',
     component:siteComponent,
    
+  },{    
+    path:'home',
+    component:HomePageComponent,
+ 
+},
+
+  {
+          
+    path: 'login',
+    component:SignInComponent,
+   
+  },
+
+  {
+    path:'logout',
+    component:LogoutComponent,
   },
   
   {

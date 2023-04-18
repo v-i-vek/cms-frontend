@@ -29,15 +29,21 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <!--     Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet'
+        type='text/css'>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR-KEY-HERE"></script>
     <script>window.global = window;</script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <script  src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 </head>
 <body class="mat-typography">
   <app-root>
@@ -47,6 +53,73 @@
       </svg>
     </div>
   </app-root>
+  <script>
+
+    let navbar = document.querySelector('.header1section .navbar');
+    
+    var swiper = new Swiper(".home-slider", {
+       loop:true,
+       grabCursor:true,
+       navigation: {
+         nextEl: ".swiper-button-next",
+         prevEl: ".swiper-button-prev",
+       },
+    });
+    
+    var swiper = new Swiper(".reviews-slider", {
+       loop:true,
+       grabCursor:true,
+       spaceBetween: 20,
+       breakpoints: {
+          640: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          991: {
+            slidesPerView: 3,
+          },
+       },
+    });
+    
+    var swiper = new Swiper(".blogs-slider", {
+       loop:true,
+       grabCursor:true,
+       spaceBetween: 20,
+       breakpoints: {
+          640: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          991: {
+            slidesPerView: 3,
+          },
+       },
+    });
+    
+    var swiper = new Swiper(".logo-slider", {
+       loop:true,
+       grabCursor:true,
+       spaceBetween: 20,
+       breakpoints: {
+          450: {
+             slidesPerView: 2,
+           },
+          640: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1000: {
+            slidesPerView: 5,
+          },
+       },
+    });
+        </script>       
 </body>
 
 
