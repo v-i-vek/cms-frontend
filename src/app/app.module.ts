@@ -26,6 +26,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { DialogSerComponent } from './serviceManagement/dialogService/dialogService.component';
+import { LogoutComponent } from './logout/logout.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AboutsectionComponent } from './home-page/aboutsection/aboutsection.component';
+import { ClientlogoSectionComponent } from './home-page/clientlogo-section/clientlogo-section.component';
+import { ContactSectionComponent } from './home-page/contact-section/contact-section.component';
+import { FooterSectionComponent } from './home-page/footer-section/footer-section.component';
+import { HeaderSectionComponent } from './home-page/header-section/header-section.component';
+import { ProjectsSectionComponent } from './home-page/projects-section/projects-section.component';
+import { ReviewSectionComponent } from './home-page/review-section/review-section.component';
+import { ServicesSectionComponent } from './home-page/services-section/services-section.component';
+import { HomesilderComponent } from './home-page/homesilder/homesilder.component';
 
 
 
@@ -63,7 +75,19 @@ import { DialogSerComponent } from './serviceManagement/dialogService/dialogServ
     AddUserComponent,
     UserDialogComponent,
     DialogSerComponent,
-    DialogSiteComponent
+    DialogSiteComponent,
+    LogoutComponent,
+    SignInComponent,
+    HomePageComponent,
+    AboutsectionComponent,
+    ClientlogoSectionComponent,
+    ContactSectionComponent,
+    FooterSectionComponent,
+    HeaderSectionComponent,
+    ProjectsSectionComponent,
+    ReviewSectionComponent,
+    ServicesSectionComponent,
+    HomesilderComponent
     
      
 
