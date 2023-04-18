@@ -34,6 +34,8 @@ export class DialogSiteComponent implements OnInit {
       location: new FormControl("", [Validators.required,]),
       category: new FormControl("", [Validators.required,]),
       image: new FormControl("", [Validators.required,]),
+      noOfFloor:new FormControl("",[Validators.required]),
+      noOfFlatPerFloor:new FormControl("",[Validators.required])
       // fileSource: new FormControl("", [Validators.required]),
     });
   }
@@ -61,6 +63,8 @@ export class DialogSiteComponent implements OnInit {
         this.editData.location
       );
       this.site_submit_form.controls["image"].setValue(this.editImage);
+      this.site_submit_form.controls["noOfFloor"].setValue(this.editData.noOfFloor),
+      this.site_submit_form.controls["noOfFlatPerFloor"].setValue(this.editData.noOfFlatPerFloor)
     }
   }
 
@@ -70,7 +74,7 @@ export class DialogSiteComponent implements OnInit {
 
     
     if (!this.editData) {
-      console.log("sishdfaiosadhf",this.site_submit_form.value.image)
+     
       if (this.site_submit_form.valid) {
         console.log("comiing")
         let formData = new FormData();
@@ -78,6 +82,8 @@ export class DialogSiteComponent implements OnInit {
         formData.append("name", this.site_submit_form.value.name);
         formData.append("location", this.site_submit_form.value.location);
         formData.append("category", this.site_submit_form.value.category);
+        formData.append("noOfFloor",this.site_submit_form.value.noOfFloor);
+        formData.append("noOfFlatPerFloor",this.site_submit_form.value.noOfFlatPerFloor)
 
         this.siteService.sitePost(formData).subscribe({
           next: (res) => {

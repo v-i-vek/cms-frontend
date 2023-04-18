@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
 import {  servicecmComponent } from '../../serviceManagement/manageService/servicecm.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
@@ -67,7 +66,6 @@ import {MatSortModule} from '@angular/material/sort';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    TableListComponent,
     servicecmComponent,
     IconsComponent,
     MapsComponent,

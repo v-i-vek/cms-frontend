@@ -27,6 +27,8 @@ export class UserDialogComponent implements OnInit {
   AddUser = new FormGroup({
     name: new FormControl("",[Validators.required]),
     email: new FormControl("",[Validators.required]),
+    siteName:new FormControl("",[Validators.required]),
+    flatNo :new FormControl ("",[Validators.required])
   });
 
   ngOnInit(): void {

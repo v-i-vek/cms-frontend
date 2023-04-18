@@ -35,7 +35,7 @@
       <input
         matInput
         placeholder="Enter number of floors"
-        formControlName="floors"
+        formControlName="noOfFloor"
       />
     </mat-form-field>
 
@@ -46,17 +46,17 @@
     <input
       matInput
       placeholder="Enter number of the Flats per floor"
-      formControlName="noOfFlat"
+      formControlName="noOfFlatPerFloor"
     />
   </mat-form-field>
 
 <!-- taking image from user -->
-    <input
+    <!-- <input
       type="file"
       (onchange)="onFileSelected($event)"
       formControlName="image"
       accept=".jpg,.png,.jpeg"
-    />
+    /> -->
 
     <div mat-dialog-actions [align]="'end'">
       <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
