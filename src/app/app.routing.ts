@@ -8,11 +8,14 @@ import { siteComponent } from './siteManagement/site/site.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad.component';
+import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userdashboard-home.component';
+import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
 
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -20,6 +23,7 @@ const routes: Routes =[
     component:siteComponent,
    
   },{    
+    
     path:'home',
     component:HomePageComponent,
  
@@ -35,13 +39,20 @@ const routes: Routes =[
   {
     path:'logout',
     component:LogoutComponent,
+  },{
+    path:'userdashboradhome',
+    component:UserDashboradComponent,
+    children:[
+      {path:'userdashboradhome', component:UserdashboardHomeComponent},
+      {path:'posts', component:PostsComponent}
+    ]
   },
   
   {
-    path: '',
+    path: 'dashboard',
     component: AdminLayoutComponent,
     children: [{
-      path: '',
+      path: 'dashboard',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
   }

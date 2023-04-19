@@ -38,7 +38,14 @@ import { ProjectsSectionComponent } from './home-page/projects-section/projects-
 import { ReviewSectionComponent } from './home-page/review-section/review-section.component';
 import { ServicesSectionComponent } from './home-page/services-section/services-section.component';
 import { HomesilderComponent } from './home-page/homesilder/homesilder.component';
+import { UserloginpageComponent } from './Userside/userloginpage/userloginpage.component';
+import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad.component';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.component';
+
+import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userdashboard-home.component';
+import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
 
 
 
@@ -65,6 +72,7 @@ import { HomesilderComponent } from './home-page/homesilder/homesilder.component
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSidenavModule
     
   ],
   declarations: [
@@ -87,7 +95,12 @@ import { HomesilderComponent } from './home-page/homesilder/homesilder.component
     ProjectsSectionComponent,
     ReviewSectionComponent,
     ServicesSectionComponent,
-    HomesilderComponent
+    HomesilderComponent,
+    UserloginpageComponent,
+    UserDashboradComponent,
+    SidebarUserComponent,
+    UserdashboardHomeComponent,
+    PostsComponent
     
      
 

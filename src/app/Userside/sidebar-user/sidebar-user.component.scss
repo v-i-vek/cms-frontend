@@ -1,0 +1,68 @@
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+mat-icon{
+    color: gray;
+    font-family:'Material Icons';
+    vertical-align: middle;
+}
+.topuser{
+    img{
+    width: 50px !important;
+    height: 50px !important;
+    background-color: white;
+    }
+}
+.iconuser{
+  text-align: center;
+  font-weight:800 ;  
+  margin-bottom: 50px;
+  img{
+    width: 150px;
+    height: 150px ;
+    margin-top: 50px;
+    //margin-left: 40px;
+}
+.namerole{
+    color: white;
+}
+.mailuser{
+    margin-top: -16px ;
+    color: #8997ac;
+}
+}
+
+.usermenu-head{ 
+    color: #466be0;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+.usermenu-item{
+    margin: 0 10px 0 10px;
+    .usermenubutton{
+        display: block;
+        position: relative;
+        width: 100%;
+        display: flex;
+        padding-left:40px;
+        margin-bottom: 10px;
+    }
+    .usermenubutton span{
+        margin-left: 15px ;
+        color: white;
+    } 
+    .usermenubutton:hover{
+        background-color: #2c3344;
+    }
+    .usermenubutton:focus{
+        background-color: #2c3344;
+    }
+}
+
