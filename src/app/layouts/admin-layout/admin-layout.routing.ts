@@ -10,12 +10,13 @@ import { siteComponent } from '../../siteManagement/site/site.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { AddUserComponent } from 'app/ManageUser/addUser/addUser.component';
 import { LogoutComponent } from 'app/logout/logout.component';
+import { MaterialcmsComponent } from 'app/Material/materialcms/materialcms.component';
 
 export const AdminLayoutRoutes: Routes = [
    
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
+    { path: 'material',     component:MaterialcmsComponent },
     { path: 'typography',     component: servicecmComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: AddUserComponent },
