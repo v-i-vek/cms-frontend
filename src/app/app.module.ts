@@ -46,6 +46,8 @@ import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.compo
 
 import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userdashboard-home.component';
 import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
+import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
+import { DialogMaterialComponent } from './Material/dialog-material/dialog-material.component';
 
 
 
@@ -100,7 +102,9 @@ import { PostsComponent } from './Userside/userdashboard-home/posts/posts.compon
     UserDashboradComponent,
     SidebarUserComponent,
     UserdashboardHomeComponent,
-    PostsComponent
+    PostsComponent,
+    MaterialcmsComponent,
+    DialogMaterialComponent
     
      
 

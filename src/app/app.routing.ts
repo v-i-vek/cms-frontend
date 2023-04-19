@@ -11,11 +11,12 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad.component';
 import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userdashboard-home.component';
 import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
+import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
   {
@@ -39,20 +40,28 @@ const routes: Routes =[
   {
     path:'logout',
     component:LogoutComponent,
-  },{
-    path:'userdashboradhome',
-    component:UserDashboradComponent,
-    children:[
-      {path:'userdashboradhome', component:UserdashboardHomeComponent},
-      {path:'posts', component:PostsComponent}
-    ]
-  },
+  }
+  // },
+
+  // {
+  //   path:'material',
+  //   component:MaterialcmsComponent,
+  // }
+  ,
+  // {
+  //   path:'userdashboradhome',
+  //   component:UserDashboradComponent,
+  //   children:[
+  //     {path:'userdashboradhome', component:UserdashboardHomeComponent},
+  //     {path:'posts', component:PostsComponent}
+  //   ]
+  // },
   
   {
-    path: 'dashboard',
+    path: '',
     component: AdminLayoutComponent,
     children: [{
-      path: 'dashboard',
+      path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
   }
