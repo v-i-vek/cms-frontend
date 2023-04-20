@@ -16,13 +16,24 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>site-name</mat-label>
-      <input matInput placeholder="Enter site-name" formControlName="siteName"  />
+      <mat-label>Select</mat-label>
+      <mat-select formControlName="name">
+        <mat-option  *ngFor="let item of getSiteData"  [value]="item._id" (onSelectionChange)="getFlatDetails($event)">{{item.name}}</mat-option>
+       
+      </mat-select>
     </mat-form-field>
+    
+    <!-- <select name="d" id="k" (change)="getFlatDetails($event)" formControlName="flatNo">
+      <option value="vivek">vivek</option>
+      <option value="kamlesh">kamlesh</option>
+    </select> -->
 
     <mat-form-field appearance="outline">
-      <mat-label>FlatNo/Office: no</mat-label>
-      <input matInput placeholder="enter your flatNo or office no" formControlName="flatNo"  />
+      <mat-label>Select</mat-label>
+      <mat-select  formControlName="flatNo">
+        <mat-option ></mat-option>
+        
+      </mat-select>
     </mat-form-field>
     
 

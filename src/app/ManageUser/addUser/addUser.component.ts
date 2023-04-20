@@ -9,6 +9,7 @@ import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { ManageUserServiceService } from "app/services/manageUserService.service";
 import { data } from "jquery";
+import { SiteManageService } from "app/services/siteManage.service";
 
 @Component({
   selector: "app-add-user",
@@ -19,6 +20,7 @@ export class AddUserComponent implements OnInit {
   displayedColumns: string[] = ["name", "email", "action"];
 
   data:any
+  siteData:any;
 
   url: any = "http://localhost:3000/"; // for giving the path of the image
   dataSource!: MatTableDataSource<any>;
@@ -28,16 +30,20 @@ export class AddUserComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private http: ManageUserServiceService
+    private http: ManageUserServiceService,
+    private httpSite:SiteManageService
   ) {}
 
   ngOnInit(): void {
     this.getAllUser();
+    this.getSiteDetails();
   }
 
   openDialog() {
     return this.dialog.open(UserDialogComponent, {
       width: "30%",
+      data: {siteData:this.siteData}
+      
     });
   }
 
@@ -57,7 +63,7 @@ export class AddUserComponent implements OnInit {
   editUserDetails(row) {
     this.dialog.open(UserDialogComponent, {
       width: "30%",
-      data: row,
+      data: {row,siteData:this.siteData}
     });
   }
 
@@ -81,4 +87,16 @@ export class AddUserComponent implements OnInit {
       }
     })
   }
+  getSiteDetails(){
+    this.httpSite.siteGet().subscribe({
+     next:(res)=>{
+       this.siteData = res
+      
+       
+     },
+     error:(e)=>{
+       console.log(e)
+     }
+    })
+   }
 }
