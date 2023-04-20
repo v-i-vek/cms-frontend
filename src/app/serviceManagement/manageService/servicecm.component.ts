@@ -12,7 +12,7 @@ import { SerServiceService } from "app/services/serService.service";
   styleUrls: ["./servicecm.component.css"],
 })
 export class servicecmComponent implements OnInit {
-  displayedColumns: string[] = ["name", "description", "customize", "action"];
+  displayedColumns: string[] = ["name", "description", "customize","serviceimage", "action"];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
