@@ -21,6 +21,7 @@ export class DialogSerComponent implements OnInit {
   dialogbtn: string = "save";
   serviceData: any;
   service_submit_form!: FormGroup;
+  editImage : any
 
   constructor(
     private service: SerServiceService,
@@ -32,20 +33,31 @@ export class DialogSerComponent implements OnInit {
       name: new FormControl("", [Validators.required]),
       description: new FormControl("", [Validators.required]),
       customize: new FormControl("", [Validators.required]),
+      serviceimage: new FormControl("",[Validators.required])
     });
   }
+  onFileSelected(event){
+    const file = event.target.files[0];
+    const filePath = event.target.value.replace ('C:\\fakepath\\','')
+    if(event.target.files.length>0) {
+      this.service_submit_form.value.image = event.target.files[0]
+      this.editImage = this.service_submit_form
+    }
+   }
+
 
   ngOnInit(): void {
     //this is inserting data from table to dialog box
     if (this.editData) {
-      this.dialogbtn = "update";
+      console.log("hello coming here")
+     
+      this.dialogbtn = "update"
+      let edifFd = new FormData()
+  
       this.service_submit_form.controls["name"].setValue(this.editData.name);
-      this.service_submit_form.controls["description"].setValue(
-        this.editData.description
-      );
-      this.service_submit_form.controls["customize"].setValue(
-        this.editData.customize
-      );
+      this.service_submit_form.controls["description"].setValue(this.editData.description);
+      this.service_submit_form.controls["customize"].setValue(this.editData.customize);
+      this.service_submit_form.controls["serviceimage"].setValue(this.editImage)
     }
   }
   //method for posting
