@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -13,33 +13,33 @@ import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userda
 import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path:'sitemanage',
-    component:siteComponent,
-   
-  },{    
-    
-    path:'home',
-    component:HomePageComponent,
- 
-},
+    path: 'sitemanage',
+    component: siteComponent,
 
-  {
-          
-    path: 'login',
-    component:SignInComponent,
-   
+  }, {
+
+    path: 'home',
+    component: HomePageComponent,
+
   },
 
   {
-    path:'logout',
-    component:LogoutComponent,
+
+    path: 'login',
+    component: SignInComponent,
+
+  },
+
+  {
+    path: 'logout',
+    component: LogoutComponent,
   }
   // },
 
@@ -49,20 +49,41 @@ const routes: Routes =[
   // }
   ,
   // {
-  //   path:'userdashboradhome',
+  //   path:'',
   //   component:UserDashboradComponent,
+  //   path:''
   //   children:[
-  //     {path:'userdashboradhome', component:UserdashboardHomeComponent},
-  //     {path:'posts', component:PostsComponent}
+  //      path: '',
+  //     loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
   //   ]
   // },
-  
+
+  // {
+  //   path: 'userdashboradhome',
+  //   component: UserDashboradComponent,
+  // },
+
+
+  // {
+  //   path: 'dashboard',
+  //   component: AdminLayoutComponent
+  // }
+
+
   {
     path: '',
+    component: UserDashboradComponent,
+    children: [{
+      path: '',
+      loadChildren: () => import('../app/Userside/user-dashborad/userside.module').then(m => m.UsersideModule)
+    }]
+  },
+  {
+    path:'',
     component: AdminLayoutComponent,
     children: [{
       path: '',
-      loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+      loadChildren: () => import('../app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
     }]
   }
 ];
@@ -71,8 +92,8 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
+    RouterModule.forRoot(routes, {
+      useHash: true
     })
   ],
   exports: [

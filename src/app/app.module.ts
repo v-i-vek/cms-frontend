@@ -7,24 +7,21 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-
 import { DialogSiteComponent } from './siteManagement/dialogSite/dialogSite.component';
-
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AddUserComponent } from './ManageUser/addUser/addUser.component';
 import { UserDialogComponent } from './ManageUser/userDialog/userDialog.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { DialogSerComponent } from './serviceManagement/dialogService/dialogService.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -40,17 +37,11 @@ import { ServicesSectionComponent } from './home-page/services-section/services-
 import { HomesilderComponent } from './home-page/homesilder/homesilder.component';
 import { UserloginpageComponent } from './Userside/userloginpage/userloginpage.component';
 import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad.component';
-
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.component';
 
-import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userdashboard-home.component';
-import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 import { DialogMaterialComponent } from './Material/dialog-material/dialog-material.component';
-
-
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -75,13 +66,10 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     MatPaginatorModule,
     MatSortModule,
     MatSidenavModule
-    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-  
-    
     AddUserComponent,
     UserDialogComponent,
     DialogSerComponent,
@@ -101,13 +89,8 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     UserloginpageComponent,
     UserDashboradComponent,
     SidebarUserComponent,
-    UserdashboardHomeComponent,
-    PostsComponent,
     MaterialcmsComponent,
-    DialogMaterialComponent
-    
-     
-
+    DialogMaterialComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
