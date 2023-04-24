@@ -12,6 +12,7 @@ import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad
 import { UserdashboardHomeComponent } from './Userside/userdashboard-home/userdashboard-home.component';
 import { PostsComponent } from './Userside/userdashboard-home/posts/posts.component';
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
+import { UserloginpageComponent } from './Userside/userloginpage/userloginpage.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent,
+  }
+  ,
+  {
+    path: 'userlogin',
+    component: UserloginpageComponent,
   }
   // },
 

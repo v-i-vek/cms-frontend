@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -42,6 +42,8 @@ import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.compo
 
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 import { DialogMaterialComponent } from './Material/dialog-material/dialog-material.component';
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -92,7 +94,8 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     MaterialcmsComponent,
     DialogMaterialComponent,
   ],
-  providers: [],
+  providers: [],//[AuthService],
+    // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

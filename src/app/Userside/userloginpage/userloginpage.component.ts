@@ -23,13 +23,13 @@ export class UserloginpageComponent implements OnInit {
   ngOnInit(): void {
   }
   OnSubmit(data:any){
- console.log(this.LoginForm.value)
+    console.log(this.LoginForm.value)
     this.userloginservice.LoginForm(this.LoginForm.value).subscribe({
       next:(res:any) => {
         const user = res.user
         console.log("data is saved",res) 
         localStorage.setItem('token',user);
-         this.router.navigate(['/dashboard']);  
+         this.router.navigate(['/userdashboradhome'],{queryParams:{email:this.LoginForm.value.email}});  
       },
       error:(e)=>console.log("error::",e)
     })
