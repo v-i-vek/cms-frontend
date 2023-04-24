@@ -4,6 +4,7 @@
   <form
     [formGroup]="AddUser" (ngSubmit)="userAdd(AddUser.value)"
   >
+ 
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput placeholder="Enter user Name" formControlName="name" />
@@ -17,15 +18,15 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Select Site</mat-label>
-      <mat-select formControlName="name">
-        <mat-option  *ngFor="let item of getSiteData"  [value]="item" (onSelectionChange)="getFlatDetails($event)">{{item.name}}</mat-option>
+      <mat-select formControlName="siteName">
+        <mat-option  *ngFor="let item of getSiteData"  [value]="item" (onSelectionChange)="getFlatDetails($event)">{{item.siteName}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Select office/flat </mat-label>
       <mat-select  formControlName="flatNo">
-        <mat-option *ngFor="let flat of getFlatdata" [value]="flat" >{{flat.flatNo}}</mat-option>
+        <mat-option *ngFor="let flat of getFlatdata" [value]="flat.flatNo" >{{flat.flatNo}}</mat-option>
         
       </mat-select>
     </mat-form-field>

@@ -41,7 +41,8 @@ export class UserDialogComponent implements OnInit {
     name: new FormControl("",[Validators.required]),
     email: new FormControl("",[Validators.required]),
     siteName:new FormControl("",[Validators.required]),
-    flatNo :new FormControl ("",[Validators.required])
+    flatNo :new FormControl ("",[Validators.required]),
+    site_id: new FormControl("",[])
   });
 
   ngOnInit(): void {
@@ -61,6 +62,7 @@ export class UserDialogComponent implements OnInit {
       this.AddUser.controls["email"].setValue(this.editData.email);
       this.AddUser.controls["flatNo"].setValue(this.editData.flatNo);
       this.AddUser.controls["siteName"].setValue(this.editData.siteName)
+      this.AddUser.controls["site_id"].setValue(this.editData.site_id);
     }
   
    

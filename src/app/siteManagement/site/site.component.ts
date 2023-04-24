@@ -14,7 +14,7 @@ declare var $: any;
 })
 export class siteComponent implements OnInit {
   displayedColumns: string[] = [
-    "name",
+    "siteName",
     "location",
     "category",
     "brandLogo",

@@ -30,7 +30,7 @@ export class DialogSiteComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public editData: any
   ) {
     this.site_submit_form = new FormGroup({
-      name: new FormControl("", [Validators.required]),
+      siteName: new FormControl("", [Validators.required]),
       location: new FormControl("", [Validators.required,]),
       category: new FormControl("", [Validators.required,]),
       image: new FormControl("", ),
@@ -55,7 +55,7 @@ export class DialogSiteComponent implements OnInit {
       this.dialogbtn = "update";
      
 
-      this.site_submit_form.controls["name"].setValue(this.editData.name);
+      this.site_submit_form.controls["siteName"].setValue(this.editData.siteName);
       this.site_submit_form.controls["category"].setValue(
         this.editData.category
       );
@@ -79,7 +79,7 @@ export class DialogSiteComponent implements OnInit {
         console.log("comiing")
         let formData = new FormData();
         formData.append("image", this.site_submit_form.value.image);
-        formData.append("name", this.site_submit_form.value.name);
+        formData.append("siteName", this.site_submit_form.value.siteName);
         formData.append("location", this.site_submit_form.value.location);
         formData.append("category", this.site_submit_form.value.category);
         formData.append("noOfFloor",this.site_submit_form.value.noOfFloor);

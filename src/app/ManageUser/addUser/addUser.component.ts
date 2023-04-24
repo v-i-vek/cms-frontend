@@ -52,6 +52,7 @@ export class AddUserComponent implements OnInit {
   getAllUser() {
     this.http.getUser().subscribe({
       next: (res: any) => {
+        console.log(res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -91,6 +92,8 @@ export class AddUserComponent implements OnInit {
     this.httpSite.siteGet().subscribe({
      next:(res)=>{
        this.siteData = res
+
+      
       
        
      },
