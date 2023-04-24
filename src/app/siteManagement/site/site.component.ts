@@ -71,6 +71,7 @@ export class siteComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       error: (error) => {
+        
         alert("error occured while fetching the data");
       },
     });

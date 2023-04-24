@@ -34,6 +34,8 @@ export class DialogSiteComponent implements OnInit {
       location: new FormControl("", [Validators.required,]),
       category: new FormControl("", [Validators.required,]),
       image: new FormControl("", [Validators.required,]),
+      noOfFloor:new FormControl("",[Validators.required]),
+      noOfFlatPerFloor:new FormControl("",[Validators.required])
       // fileSource: new FormControl("", [Validators.required]),
     });
   }
@@ -41,15 +43,17 @@ export class DialogSiteComponent implements OnInit {
   onFileSelected(event) {
     if (event.target.files.length > 0) {
       this.site_submit_form.value.image = event.target.files[0];
-      this.editImage = this.site_submit_form;
+      console.log(this.site_submit_form.value.image)
+     
     }
+    console.log(event.target.files[0])
   }
 
   ngOnInit(): void {
     //this is inserting data from table to dialog box
     if (this.editData) {
       this.dialogbtn = "update";
-      let edifFd = new FormData();
+     
 
       this.site_submit_form.controls["name"].setValue(this.editData.name);
       this.site_submit_form.controls["category"].setValue(
@@ -59,29 +63,39 @@ export class DialogSiteComponent implements OnInit {
         this.editData.location
       );
       this.site_submit_form.controls["image"].setValue(this.editImage);
+      this.site_submit_form.controls["noOfFloor"].setValue(this.editData.noOfFloor),
+      this.site_submit_form.controls["noOfFlatPerFloor"].setValue(this.editData.noOfFlatPerFloor)
     }
   }
 
   //method for posting
   sitePostData(data: any) {
+    console.log("coming here",this.site_submit_form.value.image);
+
+    
     if (!this.editData) {
+     
       if (this.site_submit_form.valid) {
+        console.log("comiing")
         let formData = new FormData();
         formData.append("image", this.site_submit_form.value.image);
         formData.append("name", this.site_submit_form.value.name);
         formData.append("location", this.site_submit_form.value.location);
         formData.append("category", this.site_submit_form.value.category);
+        formData.append("noOfFloor",this.site_submit_form.value.noOfFloor);
+        formData.append("noOfFlatPerFloor",this.site_submit_form.value.noOfFlatPerFloor)
 
         this.siteService.sitePost(formData).subscribe({
           next: (res) => {
             alert("site Added Successfully");
             this.site_submit_form.reset();
 
-            this.dialogref.close("save");
+            this.dialogref.close();
 
             // this.dialogref.close();
           },
           error: (err) => {
+            console.log(err)
             alert("site is not added");
           },
         });

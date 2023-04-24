@@ -30,7 +30,7 @@ export class servicecmComponent implements OnInit {
       });
   }
   ngOnInit(): void {
-    this.getAllserviceDetail();
+  //  this.getAllserviceDetail();
   }
 
   //this dialog box for the editing the site
