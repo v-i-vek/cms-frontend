@@ -18,7 +18,7 @@ import { SiteManageService } from "app/services/siteManage.service";
 })
 export class UserDialogComponent implements OnInit {
 
-  
+  getFlatdata:any;
   getSiteData = this.editData.siteData
   siteId:any
 
@@ -104,8 +104,12 @@ export class UserDialogComponent implements OnInit {
     }
   }
   getFlatDetails($event){
-    console.log($event.source.value)
-   // this.siteId = e.target.
+    //console.log($event.source.value)
+    this.getFlatdata = $event.source.value.flatDetails;
+   for( let item of this.getFlatdata)
+    console.log(item.flatNo)
+   
+   
   }
   
   

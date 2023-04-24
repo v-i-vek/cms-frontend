@@ -33,7 +33,7 @@ export class DialogSiteComponent implements OnInit {
       name: new FormControl("", [Validators.required]),
       location: new FormControl("", [Validators.required,]),
       category: new FormControl("", [Validators.required,]),
-      image: new FormControl("", [Validators.required,]),
+      image: new FormControl("", ),
       noOfFloor:new FormControl("",[Validators.required]),
       noOfFlatPerFloor:new FormControl("",[Validators.required])
       // fileSource: new FormControl("", [Validators.required]),
