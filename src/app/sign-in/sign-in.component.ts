@@ -25,9 +25,9 @@ export class SignInComponent implements OnInit {
  console.log(this.LoginForm.value)
     this.userloginservice.LoginForm(this.LoginForm.value).subscribe({
       next:(res:any) => {
-        const token = res.token
-        console.log("data is saved>>>>>>>>>>>>>>>>>>",res) 
-        localStorage.setItem('token',token);
+        const user = res.user
+        console.log("data is saved",res) 
+        localStorage.setItem('token',user);
          this.router.navigate(['/dashboard']);  
       },
       error:(e)=>console.log("error::",e)
