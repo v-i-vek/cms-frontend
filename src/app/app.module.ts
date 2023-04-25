@@ -42,6 +42,11 @@ import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.compo
 
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 import { DialogMaterialComponent } from './Material/dialog-material/dialog-material.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import { ShowDetailsComponent } from './ManageUser/show-details/show-details.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 @NgModule({
@@ -67,7 +72,10 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
+    MatListModule,
+    MatTabsModule
   ],
   declarations: [
     AppComponent,
@@ -93,6 +101,7 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     SidebarUserComponent,
     MaterialcmsComponent,
     DialogMaterialComponent,
+    ShowDetailsComponent
   ],
   providers: [],//[AuthService],
     // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],

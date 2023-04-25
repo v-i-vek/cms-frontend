@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import {  servicecmComponent } from '../../serviceManagement/manageService/servicecm.component';
+import { servicecmComponent } from '../../serviceManagement/manageService/servicecm.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { siteComponent } from '../../siteManagement/site/site.component';
@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {MatSortModule} from '@angular/material/sort';
     HttpClientModule ,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule
     
     
   ],
