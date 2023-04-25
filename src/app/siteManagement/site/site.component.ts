@@ -66,6 +66,7 @@ export class siteComponent implements OnInit {
   getAllSiteDetail() {
     this.siteService.siteGet().subscribe({
       next: (res: any) => {
+        console.log(res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
