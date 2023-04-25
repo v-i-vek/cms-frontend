@@ -14,7 +14,7 @@ declare var $: any;
 })
 export class siteComponent implements OnInit {
   displayedColumns: string[] = [
-    "name",
+    "siteName",
     "location",
     "category",
     "brandLogo",
@@ -71,6 +71,7 @@ export class siteComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       error: (error) => {
+        
         alert("error occured while fetching the data");
       },
     });

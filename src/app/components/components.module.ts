@@ -18,7 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   exports: [
     FooterComponent,
-    NavbarComponent,
+     NavbarComponent,
     SidebarComponent
   ]
 })

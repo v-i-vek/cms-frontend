@@ -45,7 +45,16 @@
               (click)="editUserDetails(row)"
             >
               <mat-icon>edit</mat-icon>
+
+              <!-- email icon -->
             </button>
+            <button
+            mat-icon-button
+            color="Accent"
+            (click)="sendMail(row)"
+          >
+            <mat-icon >email</mat-icon>
+          </button>
           </td>
         </ng-container>
 

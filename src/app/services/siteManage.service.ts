@@ -12,9 +12,10 @@ export class SiteManageService {
   constructor(private http: HttpClient) {}
 
   sitePost( formData: any) {
-    return this.http.post(this.baseUrl+"postSite/", formData);
+    return this.http.post(this.baseUrl+"postSite", formData);
   }
   siteGet() {
+    console.log(this.baseUrl+"getAllDetails")
     return this.http.get(this.baseUrl+"getAllDetails");
   }
   siteUpdate(data: any, id: any) {

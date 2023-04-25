@@ -7,7 +7,7 @@
   >
     <mat-form-field appearance="outline">
       <mat-label>site Name</mat-label>
-      <input matInput placeholder="Enter site-name" formControlName="name" />
+      <input matInput placeholder="Enter site-name" formControlName="siteName" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -27,20 +27,40 @@
         formControlName="location"
       />
     </mat-form-field>
-      <div mat-dialog-actions [align]="'end'">
-
-        <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-        <button mat-raised-button color="primary" (click)="show()">{{dialogbtn}}</button>
 
 
+    <!-- number of floors -->
+    <mat-form-field appearance="outline">
+      <mat-label>number of floors</mat-label>
+      <input
+        matInput
+        placeholder="Enter number of floors"
+        formControlName="noOfFloor"
+      />
+    </mat-form-field>
+
+
+  <!--number of flat per floor  -->
+  <mat-form-field appearance="outline">
+    <mat-label>Number of flat</mat-label>
+    <input
+      matInput
+      placeholder="Enter number of the Flats per floor"
+      formControlName="noOfFlatPerFloor"
+    />
+  </mat-form-field>
+
+<!-- taking image from user -->
+    <!-- <input
+      type="file"
+      (onchange)="onFileSelected($event)"
+      formControlName="image"
+      accept=".jpg,.png,.jpeg"
+    /> -->
+
+    <div mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
+      <button mat-raised-button color="primary" [disabled]="site_submit_form.invalid">{{ dialogbtn }}</button>
     </div>
-</form>
-
-    
+  </form>
 </div>
-
-
-
-
-
-

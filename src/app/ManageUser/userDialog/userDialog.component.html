@@ -1,11 +1,12 @@
-<h1 mat-dialog-title>Add sites</h1>
+<h1 mat-dialog-title>Add user</h1>
 
 <div mat-dialog-content>
   <form
     [formGroup]="AddUser" (ngSubmit)="userAdd(AddUser.value)"
   >
+ 
     <mat-form-field appearance="outline">
-      <mat-label>site Name</mat-label>
+      <mat-label>Name</mat-label>
       <input matInput placeholder="Enter user Name" formControlName="name" />
     </mat-form-field>
 
@@ -15,9 +16,25 @@
      
     </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Select Site</mat-label>
+      <mat-select formControlName="siteName">
+        <mat-option  *ngFor="let item of getSiteData"  [value]="item" (onSelectionChange)="getFlatDetails($event)">{{item.siteName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select office/flat </mat-label>
+      <mat-select  formControlName="flatNo">
+        <mat-option *ngFor="let flat of getFlatdata" [value]="flat.flatNo" >{{flat.flatNo}}</mat-option>
+        
+      </mat-select>
+    </mat-form-field>
+    
+
     <div mat-dialog-actions [align]="'end'">
       <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-      <button mat-raised-button color="primary" >
+      <button mat-raised-button color="primary">
       {{customBtn}}
       </button>
     </div>

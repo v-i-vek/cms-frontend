@@ -7,12 +7,12 @@ import { url } from 'inspector';
 })
 export class SerServiceService {
   
-  baseUrl = 'http://localhost:3000/services'
+  baseUrl = 'http://localhost:3000/'
   
 
   constructor(private http : HttpClient) { }
   servicePost(data:any){
-    return this.http.post(this.baseUrl+"services",data)
+    return this.http.post(this.baseUrl+"service",data)
     }
     serviceGet(){
       return this.http.get(this.baseUrl+"service")

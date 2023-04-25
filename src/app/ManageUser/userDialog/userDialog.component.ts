@@ -10,38 +10,67 @@ import { MatDialogRef } from "@angular/material/dialog";
 import { ManageUserServiceService } from "app/services/manageUserService.service";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { alertcenter } from "googleapis/build/src/apis/alertcenter";
+import { SiteManageService } from "app/services/siteManage.service";
 @Component({
   selector: "app-user-dialog",
   templateUrl: "./userDialog.component.html",
   styleUrls: ["./userDialog.component.scss"],
 })
 export class UserDialogComponent implements OnInit {
+
+  getFlatdata:any;
+  getSiteData = this.editData.siteData
+  siteId:any
+
+
+
   constructor(
     private http: ManageUserServiceService,
+   
     private dialogref: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public editData: any
-  ) {}
+  ) {
+
+   
+  } 
+
 
   customBtn: String = "save";
 
   AddUser = new FormGroup({
-    name: new FormControl(""),
-    email: new FormControl(""),
+    name: new FormControl("",[Validators.required]),
+    email: new FormControl("",[Validators.required]),
+    siteName:new FormControl("",[Validators.required]),
+    flatNo :new FormControl ("",[Validators.required]),
+    site_id: new FormControl("",[])
   });
 
   ngOnInit(): void {
-    if (this.editData) {
-      this.customBtn = "update";
-      let edifFd = new FormData();
 
+    // for(let i = 0; i<this.getSiteData.length;i++){
+    //  for(let j = 0; j<this.getSiteData[i].flatDetails.length;j++){
+    //   console.log(this.getSiteData[i].flatDetails[j].flatNo)
+    //  }
+    // }
+  
+    
+
+   // this.getSiteDetails()
+    if (this.editData.row) {
+      this.customBtn = "update";
       this.AddUser.controls["name"].setValue(this.editData.name);
       this.AddUser.controls["email"].setValue(this.editData.email);
+      this.AddUser.controls["flatNo"].setValue(this.editData.flatNo);
+      this.AddUser.controls["siteName"].setValue(this.editData.siteName)
+      this.AddUser.controls["site_id"].setValue(this.editData.site_id);
     }
+  
+   
   }
 
   userAdd(data: any) {
-    if (!this.editData) {
-      this.http.AddUser(data).subscribe({
+    if (!this.editData.row) {
+      this.http.AddUser(this.AddUser.value).subscribe({
         next: (res) => {
           this.dialogref.close("save");
           alert("user Added Successfully");
@@ -56,6 +85,7 @@ export class UserDialogComponent implements OnInit {
     }
   }
 
+
   editUserData() {
     this.http.updateUser(this.AddUser.value, this.editData._id).subscribe({
       next: (res) => {
@@ -69,4 +99,20 @@ export class UserDialogComponent implements OnInit {
       },
     });
   }
+  
+  selectSite(){
+    for(let item of this.getSiteData){
+
+    }
+  }
+  getFlatDetails($event){
+    //console.log($event.source.value)
+    this.getFlatdata = $event.source.value.flatDetails;
+   for( let item of this.getFlatdata)
+    console.log(item.flatNo)
+   
+   
+  }
+  
+  
 }
