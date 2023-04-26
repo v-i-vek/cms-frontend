@@ -10,7 +10,7 @@ import { url } from 'inspector';
 export class ManageUserServiceService {
 
  Port = 3000
-  baseUrl = `http://localhost:${this.Port}/`;
+public baseUrl = `http://localhost:${this.Port}/`;
 
  
 
@@ -23,6 +23,10 @@ AddUser(data:any){
 }
 getUser(){
   return this.http.get(this.baseUrl+"AddUser")
+}
+
+getsingleUser(id:any){
+  return this.http.get(this.baseUrl+"AddUser/single/"+id)
 }
 
 updateUser(data:any,id:any){

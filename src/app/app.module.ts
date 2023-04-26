@@ -39,9 +39,12 @@ import { UserloginpageComponent } from './Userside/userloginpage/userloginpage.c
 import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.component';
-
+import {MatCardModule} from '@angular/material/card';
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 import { DialogMaterialComponent } from './Material/dialog-material/dialog-material.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -67,7 +70,11 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    MatRadioModule
   ],
   declarations: [
     AppComponent,
@@ -93,6 +100,7 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
     SidebarUserComponent,
     MaterialcmsComponent,
     DialogMaterialComponent,
+ 
   ],
   providers: [],//[AuthService],
     // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],

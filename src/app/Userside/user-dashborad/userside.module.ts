@@ -29,6 +29,14 @@ import { userLayoutRoutes } from './userside.routing';
 import { UserDashboradComponent } from './user-dashborad.component';
 import { UserdashboardHomeComponent } from '../userdashboard-home/userdashboard-home.component';
 import { PostsComponent } from '../userdashboard-home/posts/posts.component';
+import {MatCardModule} from '@angular/material/card';
+import { ProfileuserComponent } from '../userdashboard-home/profileuser/profileuser.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-profile/edit-profile.component';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 
 
 @NgModule({
@@ -57,14 +65,19 @@ import { PostsComponent } from '../userdashboard-home/posts/posts.component';
     HttpClientModule ,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
-    
+    MatSortModule,
+    MatCardModule,
+    MatListModule,
+    MatDividerModule,
+    MatRadioModule
     
   ],
   declarations: [
 
    UserdashboardHomeComponent,
-   PostsComponent
+   PostsComponent,
+   ProfileuserComponent,
+   EditProfileComponent
   ]
 })
 

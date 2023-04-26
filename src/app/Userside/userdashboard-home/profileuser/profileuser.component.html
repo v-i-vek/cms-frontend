@@ -1,0 +1,76 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Construcion Management System</mat-card-title>
+      <mat-card-subtitle>Profile</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- <table class="table">
+          <tbody>
+            <tr *ngFor="let data of mapped">
+              <th scope="row">{{data}}</th>
+              <td>{{data.value}}</td>
+              <td></td>            </tr>
+          </tbody>
+        </table> -->
+
+         <!-- <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">{{mapped[0]._id}}</th>
+              <td>{{data.value}}</td>
+              <td></td>            </tr>
+          </tbody>
+        </table> -->
+
+
+<!-- 
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let data of userdata">
+              <th scope="row">{{data.type}}</th>
+              <td>{{data.value}}</td>
+              <td></td>            </tr>
+          </tbody>
+        </table> -->
+
+
+        <!-- <table class="table">
+          <tbody>
+            <tr *ngFor="let data of Object.keys(userdata)">
+              <th scope="row">{{data}}</th>
+              <td>{{userdata[data]}}</td>
+              <td></td>            </tr>
+          </tbody>
+        </table>
+
+ -->
+
+ <!-- <h1 *ngFor="let data of userdata">{{userdata}}</h1> -->
+
+      <mat-list  >
+        <mat-list-item>UserName : {{userdata.name}}  </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Email  : {{userdata.email}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Gender : {{userdata.Gender}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Mobile-no  : {{userdata.mobileNo}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Country  : {{userdata.country}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>State : {{userdata.state}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>City : {{userdata.city}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Pin-Code : {{userdata.pinCode}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+
+    </mat-card-content>
+    <mat-card-actions [align]="'end'">
+      <button mat-raised-button color="primary" (click)="OnEdit()">edit</button>
+     
+    </mat-card-actions>
+  </mat-card>
+
+  
