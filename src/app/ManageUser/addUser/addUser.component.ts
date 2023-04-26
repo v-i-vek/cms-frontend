@@ -10,6 +10,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { ManageUserServiceService } from "app/services/manageUserService.service";
 import { data } from "jquery";
 import { SiteManageService } from "app/services/siteManage.service";
+import { ShowDetailsComponent } from "../show-details/show-details.component";
 
 @Component({
   selector: "app-add-user",
@@ -52,7 +53,6 @@ export class AddUserComponent implements OnInit {
   getAllUser() {
     this.http.getUser().subscribe({
       next: (res: any) => {
-        console.log(res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -92,14 +92,18 @@ export class AddUserComponent implements OnInit {
     this.httpSite.siteGet().subscribe({
      next:(res)=>{
        this.siteData = res
-
-      
-      
-       
      },
      error:(e)=>{
-       console.log(e)
+       
      }
     })
+   }
+
+   onView(row){
+    this.dialog.open(ShowDetailsComponent,{
+      width:"50%",
+      data:row
+    })
+
    }
 }
