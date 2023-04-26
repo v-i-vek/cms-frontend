@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Owner Details</mat-card-title>
+      <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Owner">
+          <p><b>Name</b> : {{ editData.name }}</p>
+          <p><b>Email</b> : {{ editData.email }}</p></mat-tab
+        >
+        <mat-tab
+          label="Flats/Offices"
+          *ngFor="let item of editData.flatUserDetails"
+          ><p><b>FlatNo</b> : {{ item.flatNo }}</p>
+          <p><b>Site</b> : {{ item.siteName.siteName }}</p>
+        </mat-tab>
+        <mat-tab label="Site" *ngFor="let item of editData.flatUserDetails">
+          <p><b>Site Name</b> : {{ item.siteName.siteName }}</p>
+          <p><b>Category</b> : {{ item.siteName.category }}</p>
+          <p><b>location</b> : {{ item.siteName.location }}</p>
+          <p><b>No Of Floor</b> : {{ item.siteName.noOfFloor}}</p>
+          <p><b>No Of Flats</b> : {{ item.siteName.noOfFlatPerFloor}}</p>
+  
+  
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+  

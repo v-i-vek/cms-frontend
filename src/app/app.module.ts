@@ -46,6 +46,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { ShowDetailsComponent } from './ManageUser/show-details/show-details.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ShowSiteComponent } from './siteManagement/show-site/show-site.component';
 
 
 
@@ -101,7 +102,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     SidebarUserComponent,
     MaterialcmsComponent,
     DialogMaterialComponent,
-    ShowDetailsComponent
+    ShowDetailsComponent,
+    ShowSiteComponent
   ],
   providers: [],//[AuthService],
     // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],

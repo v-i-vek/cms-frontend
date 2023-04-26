@@ -62,9 +62,9 @@
               <mat-icon>edit</mat-icon>
             </button>
 
-            <!-- <button mat-icon-button>
+            <button mat-icon-button (click)="showSite(row)"> 
               <mat-icon>remove_red_eye</mat-icon>
-            </button> -->
+            </button>
 
             <button mat-icon-button color="warn" (click)="deleteData(row._id)">
               <mat-icon>delete</mat-icon>
