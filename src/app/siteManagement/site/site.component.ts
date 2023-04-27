@@ -6,6 +6,7 @@ import { AfterViewInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
+import { ShowSiteComponent } from "../show-site/show-site.component";
 declare var $: any;
 @Component({
   selector: "app-notifications",
@@ -66,6 +67,7 @@ export class siteComponent implements OnInit {
   getAllSiteDetail() {
     this.siteService.siteGet().subscribe({
       next: (res: any) => {
+        console.log(res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -98,5 +100,12 @@ export class siteComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  showSite(row){
+    this.dialog.open(ShowSiteComponent,{
+      width:"50%",
+      data:row
+    })
   }
 }

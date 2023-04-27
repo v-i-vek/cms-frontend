@@ -47,15 +47,6 @@ export class UserDialogComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // for(let i = 0; i<this.getSiteData.length;i++){
-    //  for(let j = 0; j<this.getSiteData[i].flatDetails.length;j++){
-    //   console.log(this.getSiteData[i].flatDetails[j].flatNo)
-    //  }
-    // }
-  
-    
-
-   // this.getSiteDetails()
     if (this.editData.row) {
       this.customBtn = "update";
       this.AddUser.controls["name"].setValue(this.editData.name);
@@ -64,12 +55,11 @@ export class UserDialogComponent implements OnInit {
       this.AddUser.controls["siteName"].setValue(this.editData.siteName)
       this.AddUser.controls["site_id"].setValue(this.editData.site_id);
     }
-  
-   
   }
 
   userAdd(data: any) {
     if (!this.editData.row) {
+      if(this.editData.valid){
       this.http.AddUser(this.AddUser.value).subscribe({
         next: (res) => {
           this.dialogref.close("save");
@@ -80,13 +70,14 @@ export class UserDialogComponent implements OnInit {
           alert("failed to add user");
         },
       });
-    } else {
+    }} else {
       this.editUserData();
     }
   }
 
 
   editUserData() {
+    console.log("this is called",this.editData)
     this.http.updateUser(this.AddUser.value, this.editData._id).subscribe({
       next: (res) => {
         alert("User Updated successfully");
