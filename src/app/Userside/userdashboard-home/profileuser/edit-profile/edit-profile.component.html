@@ -1,0 +1,86 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Construcion Management System</mat-card-title>
+        <mat-card-subtitle>Update Profile</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="UpdateformGroup" (ngSubmit)="OnUpdate()" >
+            <input type="hidden"  formControlName="iduser" >
+            <mat-form-field class="example-full-width">
+                <mat-label>User Name</mat-label>
+                <input matInput  readonly  formControlName="name" >
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>email</mat-label>
+                <input matInput readonly formControlName="email" >
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Address</mat-label>
+                <input matInput multiple="true" formControlName="address" >
+            </mat-form-field>
+
+            <!-- <label id="example-radio-group-label">select the Gender</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                [(ngModel)]="Gender">
+                <mat-radio-button class="example-radio-button" *ngFor="let genderval of GenderValue"
+                    [value]="genderval">
+                    {{genderval}}
+                </mat-radio-button>
+            </mat-radio-group>
+            <div style="margin-bottom: 10px !important ;">Your Gender is: {{Gender}}</div> -->
+           
+            <!-- <mat-form-field class="example-full-width">
+                <mat-label>Address</mat-label>
+                <textarea matInput placeholder="Ex. 100 Main St" formControlName="address">asd</textarea>
+            </mat-form-field> -->
+
+            <label id="example-radio-group-label">Select Your Gender</label>
+            <mat-radio-group formControlName="gender" aria-labelledby="example-radio-group-label"
+              class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender">
+                {{gender}}
+              </mat-radio-button>
+            </mat-radio-group>
+            <div>Selected Gender is: {{this.UpdateformGroup.value?.gender}}</div>
+
+
+            <table class="example-full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="example-full-width">
+                  <mat-label>Country</mat-label>
+                  <input matInput placeholder="" formControlName="country">
+                </mat-form-field></td>
+                <td><mat-form-field class="example-full-width">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="Ex. California" formControlName="state" >
+                </mat-form-field></td>
+              </tr></table>
+
+
+            <table class="example-full-width" cellspacing="0"><tr>
+                <td><mat-form-field class="example-full-width">
+                  <mat-label>City</mat-label>
+                  <input matInput placeholder="Ex. California"  formControlName="city" >
+                </mat-form-field></td>
+                <td><mat-form-field>
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput #postalCode maxlength="5" formControlName="pinCode" placeholder="Ex. 94105" >
+                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                </mat-form-field></td>
+              </tr></table>
+
+              <mat-card-actions [align]="'end'">
+                <button mat-raised-button color="warn"  mat-dialog-close >Cancel</button>
+                <button mat-raised-button color="primary">Update</button>
+    
+    
+            </mat-card-actions>
+    
+        </form>
+
+
+       
+
+
+    </mat-card-content>
+
+</mat-card>

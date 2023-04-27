@@ -27,9 +27,9 @@ export class UserloginpageComponent implements OnInit {
     this.userloginservice.LoginForm(this.LoginForm.value).subscribe({
       next:(res:any) => {
         const user = res.user
-        console.log("data is saved",res) 
+        console.log("data is saved",res.dbmail._id) 
         localStorage.setItem('token',user);
-         this.router.navigate(['/userdashboradhome'],{queryParams:{email:this.LoginForm.value.email}});  
+         this.router.navigate(['/userdashboradhome'],{queryParams:{id:res.dbmail._id}});  
       },
       error:(e)=>console.log("error::",e)
     })

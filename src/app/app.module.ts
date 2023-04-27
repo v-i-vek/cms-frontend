@@ -39,14 +39,17 @@ import { UserloginpageComponent } from './Userside/userloginpage/userloginpage.c
 import { UserDashboradComponent } from './Userside/user-dashborad/user-dashborad.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarUserComponent } from './Userside/sidebar-user/sidebar-user.component';
-
+import {MatCardModule} from '@angular/material/card';
 import { MaterialcmsComponent } from './Material/materialcms/materialcms.component';
 import { DialogMaterialComponent } from './Material/dialog-material/dialog-material.component';
-import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+
 import { ShowDetailsComponent } from './ManageUser/show-details/show-details.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ShowSiteComponent } from './siteManagement/show-site/show-site.component';
+import { ShowSiteComponent } from './siteManagement/show-site/show-site.component'
+
 
 
 
@@ -75,7 +78,9 @@ import { ShowSiteComponent } from './siteManagement/show-site/show-site.componen
     MatSortModule,
     MatSidenavModule,
     MatCardModule,
+    MatDividerModule,
     MatListModule,
+    MatRadioModule,
     MatTabsModule
   ],
   declarations: [
@@ -104,6 +109,7 @@ import { ShowSiteComponent } from './siteManagement/show-site/show-site.componen
     DialogMaterialComponent,
     ShowDetailsComponent,
     ShowSiteComponent
+ 
   ],
   providers: [],//[AuthService],
     // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
