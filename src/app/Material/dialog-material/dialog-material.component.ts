@@ -13,12 +13,16 @@ export class DialogMaterialComponent implements OnInit {
   material_form!: FormGroup;
   MaterialData: any;
   dialogbtn: string = "save";
+  getFlatdata:any;
+  site_id:any
+  getSiteData = this.editData.siteData
   editMaterial_img: any;
+  
 
   constructor(
-    private materialService: MaterialService,
+
     private dialogref: MatDialogRef<DialogMaterialComponent>,
-    private http: HttpClient,
+    private http: MaterialService ,
     @Inject(MAT_DIALOG_DATA) public editData: any
   ) {
     this.material_form = new FormGroup({
@@ -27,12 +31,16 @@ export class DialogMaterialComponent implements OnInit {
         Validators.required,
         Validators.min(10),
       ]),
-      sitename: new FormControl("", [Validators.required]),
-      flatnumber: new FormControl("", [Validators.required]),
+      siteName: new FormControl("", [Validators.required]),
+      site_id: new FormControl("", [Validators.required]),
+      flatNo: new FormControl("", [Validators.required]),
       Material_cost: new FormControl("", [
         Validators.required,
         Validators.min(10),
       ]),
+   
+      location: new FormControl("", [Validators.required,]),
+      category: new FormControl("", [Validators.required,]),
       Material_status: new FormControl("", [Validators.required]),
       Material_img: new FormControl("", [Validators.required]),
     });
@@ -51,12 +59,14 @@ export class DialogMaterialComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    if (this.editData) {
-      console.log("hello coming here");
+  
+
+    ngOnInit(): void {
+
+  
+    if (this.editData.row) {
       this.dialogbtn = "update";
 
-      let edifFd = new FormData();
       this.material_form.controls["Material_name"].setValue(
         this.editData.Material_name
       );
@@ -66,59 +76,83 @@ export class DialogMaterialComponent implements OnInit {
       this.material_form.controls["Material_cost"].setValue(
         this.editData.Material_cost
       );
-      this.material_form.controls["sitename"].setValue(this.editData.sitename);
-      this.material_form.controls["flatnumber"].setValue(
-        this.editData.flatnumber
+      this.material_form.controls["siteName"].setValue(this.editData.siteName);
+      this.material_form.controls["site_id"].setValue(this.editData.site_id);
+      this.material_form.controls["category"].setValue(
+        this.editData.category
+      );
+      this.material_form.controls["location"].setValue(
+        this.editData.location
+      );
+      this.material_form.controls["flatNo"].setValue(
+        this.editData.flatNo
       );
       this.material_form.controls["Material_status"].setValue(
         this.editData.Material_status
       );
-      this.material_form.controls["Material_img"].setValue(
-        this.editMaterial_img
-      );
+      this.material_form.controls["Material_img"].setValue(this.editMaterial_img.get("Material_img").value);
     }
   }
+  
 
   materialPostData(data: any) {
-    console.log(this.material_form.value);
-    if (!this.editData) {
-      if (this.material_form.valid) {
-        console.warn(data);
-        this.materialService.materialPost(data).subscribe({
+    if (!this.editData.row) {
+      // if (this.material_form.valid) {
+        this.http. materialPost(this.material_form.value).subscribe({
+
           next: (res) => {
-            alert("Material Added Successfully");
-            this.material_form.reset();
             this.dialogref.close("save");
-            this.dialogref.close();
+            alert("Material Added Successfully");
           },
-          error: () => {
-            alert("Material is not added");
+          error: (e) => {
+            this.dialogref.close("cancel");
+            alert("failed to add Material");
           },
         });
       }
-    } else {
-      this.updateProduct();
+      else {
+        this.updateProduct();
+      }
     }
-  }
+ 
+  // console.log("comiing")
+  // let formData = new FormData();
+  // formData.append("Material_name", this.material_form.value.Material_name);
+  // formData.append("Material_quantity", this.material_form.value.Material_quantity);
+  // formData.append("Material_cost", this.material_form.value.Material_cost);
+  // formData.append("siteName", this.material_form.value.siteName);
+  // formData.append("category",this.material_form.value.category);
+  // formData.append("location",this.material_form.value.location);
+  // formData.append("flatNo",this.material_form.value.flatNo);
+  // formData.append("Material_status",this.material_form.value.Material_status)
+  // formData.append("Material_img",this.material_form.value.Material_img);
 
   updateProduct() {
-    console.log(this.editData._id);
-    console.log(this.material_form.value);
-    this.materialService
+    this.http
       .materialUpdate(this.material_form.value, this.editData._id)
       .subscribe({
         next: (res) => {
           alert("Material Updated Successfully");
-          this.material_form.reset();
-          this.dialogref.close("update");
+          this.dialogref.close("save");
         },
         error: (e) => {
-          alert("error occured");
-          console.log(e);
+          alert("something went wrong,unable to update material");
+          this.dialogref.close("cancel");
         },
       });
   }
-  show() {
-    this.dialogref.close(true);
+  selectSite()
+  {
+    for(let item of this.getSiteData){
+
   }
+}
+
+  
+  getFlatDetails($event){
+    this.getFlatdata = $event.source.value.flatDetails;
+   for( let item of this.getFlatdata)
+    console.log("this is sth ",item.flatNo)
+  }
+  
 }
