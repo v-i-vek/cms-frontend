@@ -32,7 +32,9 @@ export class SignInComponent implements OnInit {
          this.router.navigate(['/dashboard']); 
        }else{
         console.log(res.user)
-        localStorage.setItem('token',res.user.token);
+        localStorage.setItem('token',res.user);
+        console.log("data is saved",res.dbmail._id) 
+        localStorage.setItem('tokenId',res.dbmail._id);
         this.router.navigate(['/userdashboradhome']); 
        } 
       },

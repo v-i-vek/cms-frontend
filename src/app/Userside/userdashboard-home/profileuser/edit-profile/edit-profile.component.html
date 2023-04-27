@@ -69,7 +69,7 @@
               </tr></table>
 
               <mat-card-actions [align]="'end'">
-                <button mat-raised-button color="warn"  mat-dialog-close >Cancel</button>
+                <button mat-raised-button color="warn" (close)="OnClose()" >Cancel</button>
                 <button mat-raised-button color="primary">Update</button>
     
     

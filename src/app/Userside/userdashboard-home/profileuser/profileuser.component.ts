@@ -20,42 +20,17 @@ export class ProfileuserComponent implements OnInit {
   Object = Object;
   userstringdatat :any;
   constructor(public manageUserServiceService: ManageUserServiceService, public router: ActivatedRoute, private rout: Router) {
-    // console.log("cojfosajfosaofj",this.userdata)
-    // this.router.queryParams.subscribe(param=>{
-
-    //   this.userId=param.id;
-    //   console.log("coming",this.userId);
-    // })
-    // this.manageUserServiceService.getsingleUser(this.userId).subscribe({
-
-    //   next(res:any){
-    //     this.userdata = res
-    //     console.log(res);
-
-
-    //   },error:(e)=>{alert('errore')
-    // console.log(e)
-    // }
-
-    //   })
-
+    this.getAllUserDetails();
   }
 
   ngOnInit() {
-    // this.router.queryParams.subscribe(param => {
-    //   this.userId = param.id;
-     
-   
-    // })
-
-    
-    this.getAllUserDetails();
+    // this.getAllUserDetails();
   }
   getAllUserDetails() {
     this.userId =localStorage.getItem('tokenId');
     this.manageUserServiceService.getsingleUser(this.userId).subscribe((res: any) => {
       this.userdata = res
-
+      console.log(this.userdata)
     })
   }
   OnEdit(){

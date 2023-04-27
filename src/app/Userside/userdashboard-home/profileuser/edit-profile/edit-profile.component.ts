@@ -77,5 +77,9 @@ console.log( "hoon asjfosajfo" );
     })
   }
 
+  OnClose(){
+    this.rout.navigate(['/profile']);
+  }
+
 
 }
