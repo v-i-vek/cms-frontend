@@ -32,8 +32,8 @@ export class SignInComponent implements OnInit {
          this.router.navigate(['/dashboard']); 
        }else{
         console.log(res.user)
-        localStorage.setItem('token',res.user);
-        this.router.navigate(['/userdashboradhome'],{queryParams:{id:res.dbmail._id}}); 
+        localStorage.setItem('token',res.user.token);
+        this.router.navigate(['/userdashboradhome']); 
        } 
       },
       error:(e)=>console.log("error::",e)

@@ -37,15 +37,13 @@ export class EditProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.queryParams.subscribe(param => {
-      this.userId = param.id;
-      console.log(this.userId)
+    this.userId =localStorage.getItem('tokenId');
       this.getsingledatauser()
-    })
   }
 
 
   getsingledatauser() {
+
     this.manageUserServiceService.getsingleUser(this.userId).subscribe({
       next: (res: any) => {
         this.userdata = res
@@ -67,15 +65,12 @@ export class EditProfileComponent implements OnInit {
   }
 
   OnUpdate() {
-
+console.log( "hoon asjfosajfo" );
     this.userstringdatat = JSON.stringify(this.userId);
-    console.log('object :>> ', this.userstringdatat);
-    console.log(this.UpdateformGroup.value)
-    console.log('bbbbbbbbbbbbbbbbbbbb ', this.userId);
-    this.manageUserServiceService.updateUser(this.userId, this.UpdateformGroup.value).subscribe({
+    this.manageUserServiceService.updateUser(this.userId,this.UpdateformGroup.value).subscribe({
       next: (res: any) => {
-        console.log(">#################", res)
-        this.rout.navigate(['/profile'], { queryParams: { id: this.userId } });
+        console.log(res)
+        this.rout.navigate(['/profile']);
       },
       error: (e) => console.log('error :>> ', e)
 

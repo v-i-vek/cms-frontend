@@ -42,22 +42,24 @@ export class ProfileuserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.queryParams.subscribe(param => {
-      this.userId = param.id;
+    // this.router.queryParams.subscribe(param => {
+    //   this.userId = param.id;
      
    
-    })
+    // })
+
+    
     this.getAllUserDetails();
   }
   getAllUserDetails() {
-
+    this.userId =localStorage.getItem('tokenId');
     this.manageUserServiceService.getsingleUser(this.userId).subscribe((res: any) => {
       this.userdata = res
 
     })
   }
   OnEdit(){
-    this.rout.navigate(['/Edit'],{queryParams:{id:this.userId}}); 
+    this.rout.navigate(['/Edit']); 
   }
 
 }
