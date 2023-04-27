@@ -25,10 +25,16 @@ export class SignInComponent implements OnInit {
  console.log(this.LoginForm.value)
     this.userloginservice.LoginForm(this.LoginForm.value).subscribe({
       next:(res:any) => {
-        const user = res.user
-        console.log("data is saved",res) 
+        const user = res
+        console.log("data is saved",res.user) 
+       if(res.dbmail.role=='Admin'){
         localStorage.setItem('token',user);
-         this.router.navigate(['/dashboard']);  
+         this.router.navigate(['/dashboard']); 
+       }else{
+        console.log(res.user)
+        localStorage.setItem('token',res.user);
+        this.router.navigate(['/userdashboradhome'],{queryParams:{id:res.dbmail._id}}); 
+       } 
       },
       error:(e)=>console.log("error::",e)
     })

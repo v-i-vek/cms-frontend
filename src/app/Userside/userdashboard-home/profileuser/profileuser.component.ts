@@ -18,6 +18,7 @@ export class ProfileuserComponent implements OnInit {
   mapped: any;
   UserArray: string[][] = [];
   Object = Object;
+  userstringdatat :any;
   constructor(public manageUserServiceService: ManageUserServiceService, public router: ActivatedRoute, private rout: Router) {
     // console.log("cojfosajfosaofj",this.userdata)
     // this.router.queryParams.subscribe(param=>{
@@ -43,31 +44,15 @@ export class ProfileuserComponent implements OnInit {
   ngOnInit() {
     this.router.queryParams.subscribe(param => {
       this.userId = param.id;
-      this.getAllUserDetails();
+     
    
     })
-
+    this.getAllUserDetails();
   }
   getAllUserDetails() {
 
     this.manageUserServiceService.getsingleUser(this.userId).subscribe((res: any) => {
       this.userdata = res
-
-      console.log(">>>>>>>>>>>>>>>cxvxcv", this.userdata)
-
-      // this.mapped = Object.keys(this.userdata).map(key => (this.userdata));
-      // // this.mapped = Object.values(this.userdata)
-      // console.log('object :>> ', this.mapped);
-
-      
-    //   for (var i = 0; i < this.mapped.key; i++) {
-    //  this.UserArray[i] = [];
-    //     for (var j = 0; j < this.mapped.value; j++) {
-    //       this.UserArray[i][j] = String.fromCharCode(65 + i) + (j + 1);
-    //     }
-    //   }
-    //   console.log('object :>> ',  this.UserArray);
-
 
     })
   }

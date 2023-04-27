@@ -29,7 +29,7 @@ getsingleUser(id:any){
   return this.http.get(this.baseUrl+"AddUser/single/"+id)
 }
 
-updateUser(data:any,id:any){
+updateUser(id:any,data:any){
   return this.http.put(this.baseUrl+"AddUser/"+id,data)
 }
 sendMail(id){
