@@ -1,1 +1,34 @@
-<p>posts works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Construcion Management System</mat-card-title>
+      <mat-card-subtitle>Profile</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list  >
+            <mat-list-item><b>Site Name</b> : {{userData.flatUserDetails[0].siteName.siteName}}  </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b>Location</b> :  {{userData.flatUserDetails[0].siteName.location}} </mat-list-item>
+
+            <mat-divider></mat-divider>
+            <mat-list-item>Gender : </mat-list-item>
+            <mat-divider></mat-divider>
+            <!-- <mat-list-item>Mobile-no  : {{userdata.mobileNo}}</mat-list-item>
+            <mat-divider></mat-divider> -->
+            <mat-list-item>Country  :</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>State : </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>City : </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Pin-Code : </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+    
+        </mat-card-content>
+        <mat-card-actions [align]="'end'">
+          <button mat-raised-button color="primary" >edit</button>
+         
+        </mat-card-actions>
+      </mat-card>
+    
+      
