@@ -46,6 +46,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 
+import { ShowDetailsComponent } from './ManageUser/show-details/show-details.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ShowSiteComponent } from './siteManagement/show-site/show-site.component'
+
+
+
 
 @NgModule({
   imports: [
@@ -74,7 +80,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatCardModule,
     MatDividerModule,
     MatListModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTabsModule
   ],
   declarations: [
     AppComponent,
@@ -100,6 +107,8 @@ import {MatRadioModule} from '@angular/material/radio';
     SidebarUserComponent,
     MaterialcmsComponent,
     DialogMaterialComponent,
+    ShowDetailsComponent,
+    ShowSiteComponent
  
   ],
   providers: [],//[AuthService],
