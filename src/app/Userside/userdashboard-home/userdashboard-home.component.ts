@@ -7,16 +7,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./userdashboard-home.component.scss']
 })
 export class UserdashboardHomeComponent implements OnInit {
-  userId: any;
+
   
   constructor( public router: ActivatedRoute, private rout: Router) {}
  
 
   ngOnInit(): void {
-    this.router.queryParams.subscribe(param => {
-      this.userId = param.id;
-      localStorage.setItem('tokenId',this.userId);
-  })
 }
 
 }
