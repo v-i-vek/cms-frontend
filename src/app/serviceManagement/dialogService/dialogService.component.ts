@@ -33,7 +33,8 @@ export class DialogSerComponent implements OnInit {
       name: new FormControl("", [Validators.required]),
       description: new FormControl("", [Validators.required]),
       customize: new FormControl("", [Validators.required]),
-      serviceimage: new FormControl("",[Validators.required])
+      serviceimage: new FormControl("", ),
+      siteName: new FormControl("", [Validators.required])
     });
   }
   onFileSelected(event){
@@ -58,6 +59,7 @@ export class DialogSerComponent implements OnInit {
       this.service_submit_form.controls["description"].setValue(this.editData.description);
       this.service_submit_form.controls["customize"].setValue(this.editData.customize);
       this.service_submit_form.controls["serviceimage"].setValue(this.editImage)
+      this.service_submit_form.controls["siteName"].setValue(this.editData.siteName);
     }
   }
   //method for posting
@@ -83,9 +85,12 @@ export class DialogSerComponent implements OnInit {
 
   updateProduct() {
     this.service
+  
       .serviceUpdate(this.service_submit_form.value, this.editData._id)
       .subscribe({
+        
         next: (res) => {
+          
           alert("service updated successfully");
           this.service_submit_form.reset();
           this.dialogref.close("update");
