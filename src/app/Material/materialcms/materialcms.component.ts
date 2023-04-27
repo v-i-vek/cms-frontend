@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { DialogMaterialComponent } from '../dialog-material/dialog-material.component';
 import { MaterialService } from 'app/services/material.service';
+import { SiteManageService } from 'app/services/siteManage.service';
 
 @Component({
   selector: 'app-materialcms',
@@ -17,14 +18,18 @@ export class MaterialcmsComponent implements OnInit {
   displayedColumns: any = [
     "Material_name",
     "Material_quantity",
-    "sitename",
-    "flatnumber",
+    "siteName",
+    "location",
+    "category",
+    "flatNo",
     "Material_cost",
     "Material_status",
     "Material_img",
     "Action",
   ];
-  url: any = "http://localhost:3005/";
+  data:any
+  siteData:any;
+  url: any = "http://localhost:3000/";
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -32,13 +37,20 @@ export class MaterialcmsComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private materialService: MaterialService
-  ) {}
+    private materialService: MaterialService,
+    private httpSite:SiteManageService
+    ) {}
 
+    ngOnInit(): void {
+      this.getMaterialDetails();
+      this.getSiteDetails();
+    }
+  
   openDialog() {
     return this.dialog
       .open(DialogMaterialComponent, {
         width: "30%",
+        data: {siteData:this.siteData}
       })
       .afterClosed()
       .subscribe((val) => {
@@ -46,9 +58,7 @@ export class MaterialcmsComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-    this.getMaterialDetails();
-  }
+ 
 
   editMaterialDetails(row: any) {
     return this.dialog
@@ -91,6 +101,16 @@ export class MaterialcmsComponent implements OnInit {
       },
     });
   }
+  getSiteDetails(){
+    this.httpSite.siteGet().subscribe({
+     next:(res)=>{
+       this.siteData = res
+     },
+     error:(e)=>{
+       console.log(e)
+     }
+    })
+   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

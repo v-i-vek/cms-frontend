@@ -25,22 +25,39 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>sitename</mat-label>
+        <mat-label>Select Site</mat-label>
+        <mat-select formControlName="siteName">
+          <mat-option  *ngFor="let item of getSiteData"  [value]="item.siteName" (onSelectionChange)="getFlatDetails($event)">{{item.siteName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Select office/flat </mat-label>
+        <mat-select  formControlName="flatNo">
+          <mat-option *ngFor="let flat of getFlatdata" [value]="flat.flatNo" >{{flat.flatNo}}</mat-option>
+          
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="Industrial">Industrial</mat-option>
+          <mat-option value="Commercial">Commercial</mat-option>
+          <mat-option value="Residential">Residential</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>location</mat-label>
         <input
           matInput
-          placeholder="Enter site name"
-          formControlName="sitename"
+          placeholder="enter location of site"
+          formControlName="location"
         />
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>flatnumber</mat-label>
-        <input
-          matInput
-          placeholder="Enter flat number"
-          formControlName="flatnumber"
-        />
-      </mat-form-field>
+     
 
       <mat-form-field appearance="outline">
         <mat-label>Material_cost</mat-label>
@@ -74,8 +91,8 @@
 
       <div mat-dialog-actions [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-        <button mat-raised-button color="primary" (click)="show()">
-          {{ dialogbtn }}
+        <button mat-raised-button color="primary">
+          {{dialogbtn}}
         </button>
       </div>
     </form>
