@@ -13,4 +13,8 @@ export class UserLoginService {
   LoginForm(data:any){
     return this.http.post(this.LoginURL,data)
   }
+
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
 }
