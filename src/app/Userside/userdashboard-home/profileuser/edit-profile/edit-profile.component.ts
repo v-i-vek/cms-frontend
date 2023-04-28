@@ -55,9 +55,10 @@ export class EditProfileComponent implements OnInit {
         this.UpdateformGroup.controls["email"].setValue(this.userdata.email);
         this.UpdateformGroup.controls["address"].setValue(this.userdata.address);
         this.UpdateformGroup.controls["country"].setValue(this.userdata.country);
+        this.UpdateformGroup.controls["gender"].setValue(this.userdata.country);
         this.UpdateformGroup.controls["state"].setValue(this.userdata.state);
         this.UpdateformGroup.controls["city"].setValue(this.userdata.city);
-        this.UpdateformGroup.controls["city"].setValue(this.userdata.pinCode);
+        this.UpdateformGroup.controls["pinCode"].setValue(this.userdata.pinCode);
       },
       error: (e) => console.log('error :>> ', e)
 
@@ -65,7 +66,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   OnUpdate() {
-console.log( "hoon asjfosajfo" );
+console.log( "$$$$$$$$$$$$$",this.UpdateformGroup.value );
     this.userstringdatat = JSON.stringify(this.userId);
     this.manageUserServiceService.updateUser(this.userId,this.UpdateformGroup.value).subscribe({
       next: (res: any) => {

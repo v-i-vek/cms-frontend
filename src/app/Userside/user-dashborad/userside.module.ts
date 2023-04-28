@@ -27,6 +27,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-profile/edit-profile.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
 
 
 @NgModule({
@@ -63,11 +64,12 @@ import {MatRadioModule} from '@angular/material/radio';
     
   ],
   declarations: [
-
    UserdashboardHomeComponent,
    PostsComponent,
    ProfileuserComponent,
-   EditProfileComponent
+   EditProfileComponent,
+  LogoutUserComponent
+ 
   ]
 })
 

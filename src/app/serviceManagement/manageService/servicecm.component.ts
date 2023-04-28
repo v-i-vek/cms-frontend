@@ -12,12 +12,12 @@ import { SerServiceService } from "app/services/serService.service";
   styleUrls: ["./servicecm.component.css"],
 })
 export class servicecmComponent implements OnInit {
-  displayedColumns: string[] = ["name", "description", "customize","serviceimage", "action"];
+  displayedColumns: string[] = ["name",  "siteName", "serviceimage", "action"];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private dialog: MatDialog, private service: SerServiceService) {}
+  constructor(private dialog: MatDialog, private service: SerServiceService) { }
   // this dialog box is for saving the site
   openDialog() {
     this.dialog
@@ -30,7 +30,8 @@ export class servicecmComponent implements OnInit {
       });
   }
   ngOnInit(): void {
-  //  this.getAllserviceDetail();
+    this.getAllserviceDetail();
+    console.log("coming")
   }
 
   //this dialog box for the editing the site
@@ -51,6 +52,7 @@ export class servicecmComponent implements OnInit {
   getAllserviceDetail() {
     this.service.serviceGet().subscribe({
       next: (res: any) => {
+        console.log("coming",res)
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
@@ -63,9 +65,9 @@ export class servicecmComponent implements OnInit {
 
   //deleting data from the server by id
   deleteData(id: any) {
-    this.service.serviceDelete(id).subscribe({
-      next: (res) => {
-        alert("site deleted successfully");
+  this.service.serviceDelete(id).subscribe({
+        next: (res) => {
+        alert("service deleted successfully");
         this.getAllserviceDetail();
       },
       error: (e) => {

@@ -48,7 +48,8 @@ import {MatRadioModule} from '@angular/material/radio';
 
 import { ShowDetailsComponent } from './ManageUser/show-details/show-details.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ShowSiteComponent } from './siteManagement/show-site/show-site.component'
+import { ShowSiteComponent } from './siteManagement/show-site/show-site.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 
@@ -108,10 +109,11 @@ import { ShowSiteComponent } from './siteManagement/show-site/show-site.componen
     MaterialcmsComponent,
     DialogMaterialComponent,
     ShowDetailsComponent,
-    ShowSiteComponent
+    ShowSiteComponent,
+  
  
   ],
-  providers: [],//[AuthService],
+  providers: [AuthGuard],//[AuthService],
     // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
