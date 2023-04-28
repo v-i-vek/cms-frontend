@@ -39,12 +39,12 @@
         </ng-container>
         <ng-container matColumnDef="siteName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>siteName</th>
-          <td mat-cell *matCellDef="let row">{{ row.siteName }}</td>
+          <td mat-cell *matCellDef="let row of siteIdData">{{row.site_id.siteName}}</td>
         </ng-container>
 
         <ng-container matColumnDef="flatNo">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>flatNo</th>
-          <td mat-cell *matCellDef="let row">{{ row.flatNo }}</td>
+          <td mat-cell *matCellDef="let row of siteIdData.site_id">{{ row.flatDetails }}</td>
         </ng-container>
 
         <ng-container matColumnDef="Material_cost">
