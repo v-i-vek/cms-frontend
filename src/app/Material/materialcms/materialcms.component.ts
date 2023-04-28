@@ -29,6 +29,7 @@ export class MaterialcmsComponent implements OnInit {
   ];
   data:any
   siteData:any;
+  siteIdData:any
   url: any = "http://localhost:3000/";
   dataSource!: MatTableDataSource<any>;
 
@@ -79,7 +80,14 @@ export class MaterialcmsComponent implements OnInit {
     this.materialService.getMaterial().subscribe({
       next: (res: any) => {
         console.log(res);
+        this.siteIdData = res;
+        for(let data of this.siteIdData){
+          console.log("this si id", data.site_id)
+        }
+       
+        
         this.dataSource = new MatTableDataSource(res);
+        
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         console.warn("MaterialData", res);
@@ -105,6 +113,7 @@ export class MaterialcmsComponent implements OnInit {
     this.httpSite.siteGet().subscribe({
      next:(res)=>{
        this.siteData = res
+      
      },
      error:(e)=>{
        console.log(e)
