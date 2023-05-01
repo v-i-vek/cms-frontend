@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Construcion Management System</mat-card-title>
+      <mat-card-subtitle>Profile</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+    <mat-list  >
+        <mat-list-item><b>Service Name</b> : {{userData.name}}  </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b>Service Description</b> :  {{userData.Description}} </mat-list-item>
+
+            <mat-divider></mat-divider>
+            <mat-list-item><b> Service Customize</b> :   {{userData.Customize}} </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item><b>Site Name</b> : {{userData.Name}}  </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+
+      
+        </mat-card-content>
+          <mat-card-actions [align]="'end'">
+            <button mat-raised-button color="primary" >edit</button>
+           
+          </mat-card-actions>
+        </mat-card>
