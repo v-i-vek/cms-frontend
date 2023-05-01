@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
         const user = res
         console.log("data is saved",res.user) 
        if(res.dbmail.role=='Admin'){
-        localStorage.setItem('token',user);
+        localStorage.setItem('token',res.user);
         this.showInfo()
          this.router.navigate(['/dashboard']); 
         
