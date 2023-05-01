@@ -17,4 +17,8 @@ export class UserLoginService {
   loggedIn(){
     return !!localStorage.getItem('token')
   }
+
+  public getToken(): string {
+    return localStorage.getItem('token');
+  }
 }

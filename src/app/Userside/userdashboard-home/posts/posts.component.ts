@@ -23,11 +23,12 @@ export class PostsComponent implements OnInit {
 
 getUserData(){
   this.userId = localStorage.getItem("tokenId")  
+  console.log('object :>> ', this.userId);
   this.http.getsingleUser(this.userId).subscribe({
     next:(res)=>{
       this.userData  = res;
-      console.log(this.userData.flatUserDetails[0].siteName.category)
-
+    //  console.log(this.userData.flatUserDetails[0].siteName.category)
+      console.log('object :>> ',  this.userData.flatUserDetails[0]);
     },
     error:(e)=>{
       console.log(e)
