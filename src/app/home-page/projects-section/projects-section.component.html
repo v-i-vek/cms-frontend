@@ -3,21 +3,25 @@
     <h1 class="heading"> our projects </h1>
  
     <div class="box-container">
- 
+      <div *ngFor="let list of SiteDataDisplay">
        <a href="../../../../assets/images/project-1.jpg" class="box">
           <div class="image">
              <img src="../../../../assets/images/project-1.jpg" alt="">
           </div>
           <div class="content">
              <div class="info">
-                <h3>dream home</h3>
+                <h3> {{list.siteName}} </h3>
                 <p>construction, design</p>
              </div>
              <i class="fas fa-plus"></i>
           </div>
        </a>
- 
-       <a href="../../../../assets/images/project-2.jpg" class="box">
+      </div>
+
+
+
+
+       <!-- <a href="../../../../assets/images/project-2.jpg" class="box">
           <div class="image">
              <img src="../../../../assets/images/project-2.jpg" alt="">
           </div>
@@ -81,7 +85,7 @@
              <i class="fas fa-plus"></i>
           </div>
        </a>
- 
+  -->
     </div>
  
  </section>

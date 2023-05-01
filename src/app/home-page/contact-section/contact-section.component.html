@@ -6,12 +6,12 @@
     <div class="row">
  
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7344.461835083848!2d72.50114522498183!3d23.01529213982695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8364844fffff%3A0x5bd95b41ea59f9c!2sVOLANSYS%20Technologies!5e0!3m2!1sen!2sin!4v1681377454164!5m2!1sen!2sin" width="600" style="border:0;"  ></iframe>
-       <form action="">
+       <form [formGroup]="ContactForm" (ngSubmit)="OnSubmit(ContactForm.value)" >
           <h3>get in touch</h3>
-          <input type="text" placeholder="name" class="box">
-          <input type="email" placeholder="email" class="box">
-          <input type="number" placeholder="phone" class="box">
-          <textarea name="" placeholder="message" class="box" id="" cols="30" rows="10"></textarea>
+          <input type="text" placeholder="name" class="box" formControlName ="contactname" >
+          <input type="email" placeholder="email" class="box"formControlName ="contactnumber" >
+          <input type="number" placeholder="phone" class="box" formControlName ="contactmessage" >
+          <textarea name="" placeholder="message" class="box" id="" cols="30" rows="10" formControlName ="contactemail" ></textarea>
           <input type="submit" value="send message" class="btn">
        </form>
  

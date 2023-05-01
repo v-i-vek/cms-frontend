@@ -55,7 +55,7 @@ export class EditProfileComponent implements OnInit {
         this.UpdateformGroup.controls["email"].setValue(this.userdata.email);
         this.UpdateformGroup.controls["address"].setValue(this.userdata.address);
         this.UpdateformGroup.controls["country"].setValue(this.userdata.country);
-        this.UpdateformGroup.controls["gender"].setValue(this.userdata.country);
+        this.UpdateformGroup.controls["gender"].setValue(this.userdata.gender);
         this.UpdateformGroup.controls["state"].setValue(this.userdata.state);
         this.UpdateformGroup.controls["city"].setValue(this.userdata.city);
         this.UpdateformGroup.controls["pinCode"].setValue(this.userdata.pinCode);

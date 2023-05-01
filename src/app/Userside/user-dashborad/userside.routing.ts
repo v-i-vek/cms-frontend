@@ -13,7 +13,7 @@ export const userLayoutRoutes: Routes = [
     {path:'userdashboradhome', component:UserdashboardHomeComponent},
     {path:'profile', component:ProfileuserComponent},
     {path:'Edit', component:EditProfileComponent},     
-    {path:'posts', component:PostsComponent},
+    {path:'propertydetails', component:PostsComponent},
     {path:'logoutuser', component:LogoutUserComponent},
       
   

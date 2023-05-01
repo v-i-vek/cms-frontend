@@ -50,7 +50,8 @@ import { ShowDetailsComponent } from './ManageUser/show-details/show-details.com
 import {MatTabsModule} from '@angular/material/tabs';
 import { ShowSiteComponent } from './siteManagement/show-site/show-site.component';
 import { AuthGuard } from './services/auth.guard';
-
+import { TokeninterInterceptor } from './services/tokeninter.interceptor';
+import {NgToastModule} from 'ng-angular-popup';
 
 
 
@@ -82,7 +83,8 @@ import { AuthGuard } from './services/auth.guard';
     MatDividerModule,
     MatListModule,
     MatRadioModule,
-    MatTabsModule
+    MatTabsModule,
+    NgToastModule
   ],
   declarations: [
     AppComponent,
@@ -113,7 +115,10 @@ import { AuthGuard } from './services/auth.guard';
   
  
   ],
-  providers: [AuthGuard],//[AuthService],
+  providers: [AuthGuard],
+  // providers: [AuthGuard,{ 
+  //   provide: HTTP_INTERCEPTORS, useClass: TokeninterInterceptor, multi:true
+  // },],//[AuthService],
     // {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
