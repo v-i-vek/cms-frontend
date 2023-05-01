@@ -15,4 +15,7 @@ export class ContactService {
   deleteContact(id: any): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deletecontact/${id}`);
   }
+  postContact(data:any){
+    return this.http.post(this.baseUrl+'/postcontact',data)
+  }
 }
