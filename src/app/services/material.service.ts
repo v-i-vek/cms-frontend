@@ -5,7 +5,6 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class MaterialService {
-
   url = "http://localhost:3000/Postmaterial";
   patchUrl = "http://localhost:3000/patchmaterial/";
   deleteUrl = "http://localhost:3000/deletematerial/";
@@ -17,10 +16,10 @@ export class MaterialService {
   }
 
   getMaterial() {
-    return this.http.get("http://localhost:3000/getmaterial");
+    return this.http.get("http://localhost:3000/getmaterial/");
   }
 
-  materialUpdate(data: any, id: any) {
+  materialUpdate(id: any, data: any) {
     return this.http.patch(this.patchUrl + id, data);
   }
   deletematerial(id: any) {
