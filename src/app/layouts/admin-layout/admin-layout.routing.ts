@@ -15,7 +15,7 @@ import { AuthGuard } from 'app/services/auth.guard';
 export const AdminLayoutRoutes: Routes = [
    
     { path: 'dashboard',      component: DashboardComponent,canActivate:[AuthGuard] },
-    { path: 'user-profile',   component: UserProfileComponent,canActivate:[AuthGuard] },
+    { path: 'contact',   component: UserProfileComponent,canActivate:[AuthGuard] },
     { path: 'material',     component:MaterialcmsComponent },
     { path: 'typography',     component: servicecmComponent },
     { path: 'icons',          component: IconsComponent },

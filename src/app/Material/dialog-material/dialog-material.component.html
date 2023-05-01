@@ -25,39 +25,21 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Select Site</mat-label>
-        <mat-select formControlName="siteName">
-          <mat-option  *ngFor="let item of getSiteData"  [value]="item.siteName" (onSelectionChange)="getFlatDetails($event)">{{item.siteName}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field appearance="outline">
-        <mat-label>Select office/flat </mat-label>
-        <mat-select  formControlName="flatNo">
-          <mat-option *ngFor="let flat of getFlatdata" [value]="flat.flatNo" >{{flat.flatNo}}</mat-option>
-          
-        </mat-select>
-      </mat-form-field>
-      
-      <mat-form-field appearance="outline">
-        <mat-label>category</mat-label>
-        <mat-select formControlName="category">
-          <mat-option value="Industrial">Industrial</mat-option>
-          <mat-option value="Commercial">Commercial</mat-option>
-          <mat-option value="Residential">Residential</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field appearance="outline">
-        <mat-label>location</mat-label>
-        <input
-          matInput
-          placeholder="enter location of site"
-          formControlName="location"
-        />
+        <mat-label>unit</mat-label>
+        <input matInput placeholder="Enter unit" formControlName="unit" />
       </mat-form-field>
 
-     
+      <mat-form-field appearance="outline">
+        <mat-label>Select Site</mat-label>
+        <mat-select formControlName="siteName">
+          <mat-option
+            *ngFor="let item of getSiteData"
+            [value]="item"
+            (onSelectionChange)="getFlatDetails($event)"
+            >{{ item.siteName }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Material_cost</mat-label>
@@ -77,22 +59,10 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="">
-        <mat-label></mat-label>
-        <input
-          matInput
-          type="file"
-          (change)="onFileSelected($event)"
-          placeholder="Upload file"
-          accept=".jpg,.png,.jpeg"
-          formControlName="Material_img"
-        />
-      </mat-form-field>
-
       <div mat-dialog-actions [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-        <button mat-raised-button color="primary">
-          {{dialogbtn}}
+        <button type="submit" mat-raised-button color="primary">
+          {{ dialogbtn }}
         </button>
       </div>
     </form>
