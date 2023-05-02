@@ -2,6 +2,16 @@
   <span>Contact Enquiry </span>
   <span class="example-spacer"></span>
 </mat-toolbar>
+<div class="container">
+  <div style="margin-top: 5px">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event.target.value)"
+        placeholder="Search"
+      />
+    </mat-form-field>
 
 <table mat-table [dataSource]="contacts" class="mat-elevation-z8">
   <ng-container matColumnDef="contactname">
