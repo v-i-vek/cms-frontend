@@ -25,6 +25,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ProfileuserComponent } from '../userdashboard-home/profileuser/profileuser.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { UserservicesComponent } from '../userdashboard-home/userservices/userservices.component';
 import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-profile/edit-profile.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
@@ -68,7 +69,8 @@ import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-us
    PostsComponent,
    ProfileuserComponent,
    EditProfileComponent,
-  LogoutUserComponent
+  LogoutUserComponent,
+  UserservicesComponent
  
   ]
 })

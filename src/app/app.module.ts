@@ -45,7 +45,7 @@ import { DialogMaterialComponent } from './Material/dialog-material/dialog-mater
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { NgxUiLoaderModule , NgxUiLoaderHttpModule, POSITION } from "ngx-ui-loader";
 import { ShowDetailsComponent } from './ManageUser/show-details/show-details.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ShowSiteComponent } from './siteManagement/show-site/show-site.component';
@@ -84,7 +84,11 @@ import {NgToastModule} from 'ng-angular-popup';
     MatListModule,
     MatRadioModule,
     MatTabsModule,
-    NgToastModule
+    NgToastModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true
+    }),
   ],
   declarations: [
     AppComponent,
