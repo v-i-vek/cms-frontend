@@ -17,9 +17,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent,canActivate:[AuthGuard] },
     { path: 'contactDetail',   component: UserProfileComponent,canActivate:[AuthGuard] },
     { path: 'material',     component:MaterialcmsComponent },
-    { path: 'typography',     component: servicecmComponent },
+    { path: 'servicemanage',     component: servicecmComponent },
     { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: AddUserComponent },
-    { path: 'notifications',  component: siteComponent },
+    { path: 'usermanage',           component: AddUserComponent },
+    { path: 'sitemanage',  component: siteComponent },
     { path: 'logout',        component: LogoutComponent },
 ];

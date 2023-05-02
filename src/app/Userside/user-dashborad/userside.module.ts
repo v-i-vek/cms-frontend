@@ -29,6 +29,7 @@ import { UserservicesComponent } from '../userdashboard-home/userservices/userse
 import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-profile/edit-profile.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
+import { NgxUiLoaderModule,NgxUiLoaderHttpModule, POSITION } from 'ngx-ui-loader';
 
 @NgModule({
   imports: [
@@ -60,7 +61,9 @@ import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-us
     MatCardModule,
     MatListModule,
     MatDividerModule,
-    MatRadioModule
+    MatRadioModule,
+   
+    
     
   ],
   declarations: [
