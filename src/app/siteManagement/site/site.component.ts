@@ -78,7 +78,14 @@ export class siteComponent implements OnInit {
       },
     });
   }
-
+  confirmDelete(id:any){
+    
+    if (confirm("Site will be permanantly deleted ")) {
+     this.deleteData(id)
+    } else {
+     alert("Deleting site is cancelled")
+    }
+  }
   //deleting data from the server by id
   deleteData(id: any) {
     this.siteService.siteDelete(id).subscribe({
