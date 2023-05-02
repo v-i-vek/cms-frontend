@@ -52,8 +52,8 @@ import { ShowSiteComponent } from './siteManagement/show-site/show-site.componen
 import { AuthGuard } from './services/auth.guard';
 import { TokeninterInterceptor } from './services/tokeninter.interceptor';
 import {NgToastModule} from 'ng-angular-popup';
-
-
+import { UserservicesComponent } from './Userside/userdashboard-home/userservices/userservices.component';
+import{FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -84,7 +84,8 @@ import {NgToastModule} from 'ng-angular-popup';
     MatListModule,
     MatRadioModule,
     MatTabsModule,
-    NgToastModule
+    NgToastModule,
+    FileUploadModule
   ],
   declarations: [
     AppComponent,
@@ -112,6 +113,7 @@ import {NgToastModule} from 'ng-angular-popup';
     DialogMaterialComponent,
     ShowDetailsComponent,
     ShowSiteComponent,
+    
   
  
   ],
