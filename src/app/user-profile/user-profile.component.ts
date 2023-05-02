@@ -54,4 +54,13 @@ export class UserProfileComponent implements OnInit {
     this.pageIndex = event.pageIndex;
     this.loadContacts();
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
+

@@ -14,7 +14,7 @@ export const userLayoutRoutes: Routes = [
     {path:'profile', component:ProfileuserComponent},
     {path:'Edit', component:EditProfileComponent},     
     {path:'propertydetails', component:PostsComponent},
-    {path:'services', component:UserservicesComponent},
+    {path:'userservices', component:UserservicesComponent},
     {path:'logoutuser', component:LogoutUserComponent},
       
   
