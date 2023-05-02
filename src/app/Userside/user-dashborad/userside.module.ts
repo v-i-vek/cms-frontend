@@ -29,6 +29,7 @@ import { UserservicesComponent } from '../userdashboard-home/userservices/userse
 import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-profile/edit-profile.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
+import { UserservicesComponent } from '../userdashboard-home/userservices/userservices.component';
 
 
 @NgModule({

@@ -30,6 +30,8 @@ export class SidebarUserComponent implements OnInit {
   menuItems: any[];
   userId: string;
   userdata: any;
+  url: any = "http://localhost:3000/"; 
+  userImage :any;
   constructor(public manageUserServiceService: ManageUserServiceService, public router: ActivatedRoute, private rout: Router) {
     this.getAllUserDetails();
   }
@@ -41,7 +43,13 @@ export class SidebarUserComponent implements OnInit {
     this.userId =localStorage.getItem('tokenId');
     this.manageUserServiceService.getsingleUser(this.userId).subscribe((res: any) => {
       this.userdata = res
-      console.log(this.userdata)
+//    let url = window.location.href
+// let urlArray = url.split('/')
+// let data = urlArray[urlArray.length-1]
+// let dataValues = data.split(/([0-9]+)/)
+
+
+      console.log(this.userdata.image)
     })
   }
 
