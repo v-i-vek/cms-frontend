@@ -20,11 +20,12 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  {
-    path: 'sitemanage',
-    component: siteComponent,
+  // {
+  //   path: 'sitemanage',
+  //   component: siteComponent,
 
-  }, {
+  // }
+   {
 
     path: 'home',
     component: HomePageComponent,
