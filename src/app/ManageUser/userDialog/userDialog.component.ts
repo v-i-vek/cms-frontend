@@ -59,7 +59,7 @@ export class UserDialogComponent implements OnInit {
 
   userAdd(data: any) {
     if (!this.editData.row) {
-      if(this.editData.valid){
+     // if(this.editData.valid){
       this.http.AddUser(this.AddUser.value).subscribe({
         next: (res) => {
           this.dialogref.close("save");
@@ -70,7 +70,8 @@ export class UserDialogComponent implements OnInit {
           alert("failed to add user");
         },
       });
-    }} else {
+  //  }
+  } else {
       this.editUserData();
     }
   }

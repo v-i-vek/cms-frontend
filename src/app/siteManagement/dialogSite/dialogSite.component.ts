@@ -33,7 +33,7 @@ export class DialogSiteComponent implements OnInit {
       siteName: new FormControl("", [Validators.required]),
       location: new FormControl("", [Validators.required,]),
       category: new FormControl("", [Validators.required,]),
-      image: new FormControl("", ),
+      image: new FormControl(""),
       noOfFloor:new FormControl("",[Validators.required]),
       noOfFlatPerFloor:new FormControl("",[Validators.required])
       // fileSource: new FormControl("", [Validators.required]),
@@ -56,8 +56,12 @@ export class DialogSiteComponent implements OnInit {
      
 
       this.site_submit_form.controls["siteName"].setValue(this.editData.siteName);
-      this.site_submit_form.controls["category"].setValue(this.editData.category);
-      this.site_submit_form.controls["location"].setValue(this.editData.location);
+      this.site_submit_form.controls["category"].setValue(
+        this.editData.category
+      );
+      this.site_submit_form.controls["location"].setValue(
+        this.editData.location
+      );
       this.site_submit_form.controls["image"].setValue(this.editImage);
       this.site_submit_form.controls["noOfFloor"].setValue(this.editData.noOfFloor),
       this.site_submit_form.controls["noOfFlatPerFloor"].setValue(this.editData.noOfFlatPerFloor)
