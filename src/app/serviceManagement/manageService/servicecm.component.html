@@ -54,12 +54,12 @@
         
         <ng-container matColumnDef="siteName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>siteName</th>
-          <td mat-cell *matCellDef="let row">{{ row.siteName }}</td>
+          <td mat-cell *matCellDef="let row">{{ row.site_id.siteName }}</td>
         </ng-container>
         
         <ng-container matColumnDef="serviceimage">
           <th mat-header-cell *matHeaderCellDef> serviceimage </th>
-          <td mat-cell *matCellDef="let row"> <img src="{{row.serviceimage}}" /> </td>
+          <td mat-cell *matCellDef="let row"> <img src="{{url}}{{row.serviceimage}}" /> </td>
         </ng-container>
     
 

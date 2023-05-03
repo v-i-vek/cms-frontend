@@ -24,7 +24,7 @@ export class SerServiceService {
     }
     serviceDelete(id:any){
     
-      return this.http.delete(this.baseUrl+"services"+id)
+      return this.http.delete(this.baseUrl+"services/"+id)
     }
   }
   

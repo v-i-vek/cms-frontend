@@ -25,10 +25,14 @@
         formControlName="customize"
       />
     </mat-form-field> -->
+   
     <mat-form-field appearance="outline">
-      <mat-label>site Name</mat-label>
-      <input matInput placeholder="Enter site-name" formControlName="siteName" />
+      <mat-label>Select Site</mat-label>
+      <mat-select formControlName="site_id">
+        <mat-option  *ngFor="let item of siteData"  [value]="item.site_id._id" >{{item.site_id.siteName}}</mat-option>
+      </mat-select>
     </mat-form-field>
+
 
 
     <mat-form-field appearance="">

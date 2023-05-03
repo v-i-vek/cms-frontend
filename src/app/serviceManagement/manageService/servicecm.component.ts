@@ -6,6 +6,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { DialogSerComponent } from "../dialogService/dialogService.component";
 import { SerServiceService } from "app/services/serService.service";
+import { ContentObserver } from "@angular/cdk/observers";
 @Component({
   selector: "app-servicecm",
   templateUrl: "./servicecm.component.html",
@@ -15,6 +16,12 @@ export class servicecmComponent implements OnInit {
   displayedColumns: string[] = ["name",  "siteName", "serviceimage", "action"];
   dataSource!: MatTableDataSource<any>;
 
+
+  url: any = "http://localhost:3000/";
+
+  siteData:any;
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private dialog: MatDialog, private service: SerServiceService) { }
@@ -23,6 +30,7 @@ export class servicecmComponent implements OnInit {
     this.dialog
       .open(DialogSerComponent, {
         width: "30%",
+        data:{siteData:this.siteData}
       })
       .afterClosed()
       .subscribe((val) => {
@@ -52,8 +60,11 @@ export class servicecmComponent implements OnInit {
   getAllserviceDetail() {
     this.service.serviceGet().subscribe({
       next: (res: any) => {
-        console.log("coming",res)
+        console.log("service images",res)
         this.dataSource = new MatTableDataSource(res);
+        this.siteData  = res
+        console.log("+++++++++>",this.siteData)
+   
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -65,6 +76,7 @@ export class servicecmComponent implements OnInit {
 
   //deleting data from the server by id
   deleteData(id: any) {
+    console.log(id)
   this.service.serviceDelete(id).subscribe({
         next: (res) => {
         alert("service deleted successfully");

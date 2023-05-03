@@ -11,6 +11,7 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { isModuleNamespaceObject } from "util/types";
 import { log } from "console";
 import { SerServiceService } from "app/services/serService.service";
+import { ContentObserver } from "@angular/cdk/observers";
 
 @Component({
   selector: "app-dialog-ser",
@@ -22,6 +23,7 @@ export class DialogSerComponent implements OnInit {
   serviceData: any;
   service_submit_form!: FormGroup;
   editImage : any
+  siteData:any
 
   constructor(
     private service: SerServiceService,
@@ -29,44 +31,60 @@ export class DialogSerComponent implements OnInit {
     private dialogref: MatDialogRef<DialogSerComponent>,
     @Inject(MAT_DIALOG_DATA) public editData: any
   ) {
+    this.siteData = editData.siteData
+   for(let item of this.siteData){
+    console.log(item.site_id.siteName);
+    
+   }
+ 
+   
+
+
     this.service_submit_form = new FormGroup({
-      name: new FormControl("", [Validators.required]),
-      description: new FormControl("", [Validators.required]),
-      customize: new FormControl("", [Validators.required]),
-      serviceimage: new FormControl("", ),
-      siteName: new FormControl("", [Validators.required])
+      name: new FormControl(""),
+      description: new FormControl(""),
+      customize: new FormControl(""),
+      serviceimage: new FormControl("" ),
+      site_id: new FormControl("")
     });
   }
   onFileSelected(event){
-    const file = event.target.files[0];
-    const filePath = event.target.value.replace ('C:\\fakepath\\','')
+    
     if(event.target.files.length>0) {
-      this.service_submit_form.value.image = event.target.files[0]
-      this.editImage = this.service_submit_form
+      this.service_submit_form.value.serviceimage = event.target.files[0]
+     
     }
    }
 
 
   ngOnInit(): void {
     //this is inserting data from table to dialog box
-    if (this.editData) {
-      console.log("hello coming here")
+    // if (this.editData) {
+    //   console.log("hello coming here")
      
-      this.dialogbtn = "update"
-      let edifFd = new FormData()
+    //   this.dialogbtn = "update"
+    //   let edifFd = new FormData()
   
-      this.service_submit_form.controls["name"].setValue(this.editData.name);
-      this.service_submit_form.controls["description"].setValue(this.editData.description);
-      this.service_submit_form.controls["customize"].setValue(this.editData.customize);
-      this.service_submit_form.controls["serviceimage"].setValue(this.editImage)
-      this.service_submit_form.controls["siteName"].setValue(this.editData.siteName);
-    }
+    //   this.service_submit_form.controls["name"].setValue(this.editData.name);
+    //   this.service_submit_form.controls["description"].setValue(this.editData.description);
+    //   this.service_submit_form.controls["customize"].setValue(this.editData.customize);
+    //   this.service_submit_form.controls["serviceimage"].setValue(this.editImage)
+    //   this.service_submit_form.controls["siteName"].setValue(this.editData.siteName);
+    // }
   }
   //method for posting
   servicePostData(data: any) {
-    if (!this.editData) {
-      if (this.service_submit_form.valid) {
-        this.service.servicePost(data).subscribe({
+    // if (!this.editData) {
+    //   if (this.service_submit_form.valid) {
+
+      let formData = new FormData();
+      formData.append("name", this.service_submit_form.value.name);
+      formData.append("description", this.service_submit_form.value.description);
+      formData.append("customize", this.service_submit_form.value.customize);
+      formData.append("serviceimage", this.service_submit_form.value.serviceimage);
+      formData.append("site_id",this.service_submit_form.value.site_id);
+    console.log(formData)
+        this.service.servicePost(formData).subscribe({
           next: (res) => {
             alert("service Added Successfully");
             this.service_submit_form.reset();
@@ -78,10 +96,10 @@ export class DialogSerComponent implements OnInit {
           },
         });
       }
-    } else {
-      this.updateProduct();
-    }
-  }
+  //   } else {
+  //     this.updateProduct();
+  //   }
+  // }
 
   updateProduct() {
     this.service
