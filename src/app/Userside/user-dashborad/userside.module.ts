@@ -30,6 +30,7 @@ import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-pro
 import {MatRadioModule} from '@angular/material/radio';
 import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule, POSITION } from 'ngx-ui-loader';
+import { CustomRequestComponent } from '../userdashboard-home/userservices/custom-request/custom-request.component';
 
 @NgModule({
   imports: [
@@ -72,7 +73,8 @@ import { NgxUiLoaderModule,NgxUiLoaderHttpModule, POSITION } from 'ngx-ui-loader
    ProfileuserComponent,
    EditProfileComponent,
   LogoutUserComponent,
-  UserservicesComponent
+  UserservicesComponent,
+  CustomRequestComponent
  
   ]
 })

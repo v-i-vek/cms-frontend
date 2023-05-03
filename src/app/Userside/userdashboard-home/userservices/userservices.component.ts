@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManageUserServiceService } from 'app/services/manageUserService.service';
+import { Router } from '@angular/router';
+import { SerServiceService } from 'app/services/serService.service';
 
 
 @Component({
@@ -10,25 +12,24 @@ import { ManageUserServiceService } from 'app/services/manageUserService.service
 export class UserservicesComponent implements OnInit {
   userId:any
   userData:any
+  serviceDataDisplay: any;
 
-  constructor(private http: ManageUserServiceService) { 
-    this.getUserData()
-  }
+  constructor(private serServiceService :SerServiceService) {
+    this.getserviceDetails()
+   }
 
   ngOnInit(): void {
   }
-  getUserData(){
-    this.userId = localStorage.getItem("tokenId")  
-    this.http.getsingleUser(this.userId).subscribe({
-      next:(res)=>{
-        this.userData  = res;
-        console.log(this.userData.name)
-  
-      },
-      error:(e)=>{
-        console.log(e)
-      }
-    })
+  getserviceDetails(){
+
+    this.serServiceService.serviceGet().subscribe(
+      (res: any) => {
+            this.serviceDataDisplay = res
+           console.log(this.serviceDataDisplay)
+            
+        }
+   // (e)=>console.log("error::",e)
+    )
   }
 
 }
