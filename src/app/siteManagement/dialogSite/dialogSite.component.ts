@@ -11,6 +11,8 @@ import { MatDialogRef } from "@angular/material/dialog";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { isModuleNamespaceObject } from "util/types";
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { ContentObserver } from "@angular/cdk/observers";
+import { Console } from "console";
 
 @Component({
   selector: "app-dialog-site",
@@ -56,13 +58,9 @@ export class DialogSiteComponent implements OnInit {
      
 
       this.site_submit_form.controls["siteName"].setValue(this.editData.siteName);
-      this.site_submit_form.controls["category"].setValue(
-        this.editData.category
-      );
-      this.site_submit_form.controls["location"].setValue(
-        this.editData.location
-      );
-      this.site_submit_form.controls["image"].setValue(this.editImage);
+      this.site_submit_form.controls["category"].setValue(this.editData.category);
+      this.site_submit_form.controls["location"].setValue(this.editData.location);
+      this.site_submit_form.controls["image"].setValue(this.editData.image);
       this.site_submit_form.controls["noOfFloor"].setValue(this.editData.noOfFloor),
       this.site_submit_form.controls["noOfFlatPerFloor"].setValue(this.editData.noOfFlatPerFloor)
     }
@@ -75,7 +73,7 @@ export class DialogSiteComponent implements OnInit {
     
     if (!this.editData) {
      
-      if (this.site_submit_form.valid) {
+     // if (this.site_submit_form.valid) {
         console.log("comiing")
         let formData = new FormData();
         formData.append("image", this.site_submit_form.value.image);
@@ -99,27 +97,40 @@ export class DialogSiteComponent implements OnInit {
             alert("site is not added");
           },
         });
-      }
+     // }
     } else {
       this.updateProduct();
     }
   }
 
   //code for updating the site
-  updateProduct() {
+async  updateProduct() {
+    console.log("==========>",this.site_submit_form.value)
+    let formData = new FormData();
+    formData.append("image", this.site_submit_form.value.image);
+    formData.append("siteName", this.site_submit_form.value.siteName);
+    formData.append("location", this.site_submit_form.value.location);
+    formData.append("category", this.site_submit_form.value.category);
+    formData.append("noOfFloor",this.site_submit_form.value.noOfFloor);
+    formData.append("noOfFlatPerFloor",this.site_submit_form.value.noOfFlatPerFloor)
 
-    this.siteService
-      .siteUpdate(this.site_submit_form.value, this.editData._id)
-      .subscribe({
-        next: (res) => {
+  await  this.siteService
+      .siteUpdate(formData, this.editData._id)
+      .subscribe(
+        (res: any) => {
           alert("site updated successfully");
           this.site_submit_form.reset();
           this.dialogref.close("update");
         },
-        error: (e) => {
+        (err:any)=>{
           alert("error occured");
-        },
-      });
+        }
+        // },
+        // error: (e) => {
+        //   alert("error occured");
+        // },
+      //}
+      );
   }
 
   show() {
