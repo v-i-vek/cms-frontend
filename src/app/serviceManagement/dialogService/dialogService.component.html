@@ -17,19 +17,11 @@
       <mat-label>service description</mat-label>
     </mat-form-field>
 
-    <!-- <mat-form-field appearance="outline">
-      <mat-label>customize-service</mat-label>
-      <input
-        matInput
-        placeholder="enter customize service here"
-        formControlName="customize"
-      />
-    </mat-form-field> -->
    
     <mat-form-field appearance="outline">
       <mat-label>Select Site</mat-label>
       <mat-select formControlName="site_id">
-        <mat-option  *ngFor="let item of siteData"  [value]="item.site_id._id" >{{item.site_id.siteName}}</mat-option>
+        <mat-option  *ngFor="let item of siteData "  [value]="item._id" >{{item.siteName}}</mat-option>
       </mat-select>
     </mat-form-field>
 

@@ -31,11 +31,12 @@ export class DialogSerComponent implements OnInit {
     private dialogref: MatDialogRef<DialogSerComponent>,
     @Inject(MAT_DIALOG_DATA) public editData: any
   ) {
-    this.siteData = editData.siteData
-   for(let item of this.siteData){
-    console.log(item.site_id.siteName);
-    
-   }
+    this.siteData = this.editData.siteData
+for(let item of this.siteData){
+      console.log(item.siteName);
+      
+}
+   
  
    
 
