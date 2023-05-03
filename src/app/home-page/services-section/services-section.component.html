@@ -3,13 +3,15 @@
     <h1 class="heading"> our services </h1>
  
     <div class="box-container">
- 
+      <div *ngFor="let list of serviceDataDisplay |  slice: (serviceDataDisplay.length > 8 ? serviceDataDisplay.length - 8 : 0); index as i">
+   
        <div class="box">
-          <img src="../../../../assets/images/service-1.png" alt="">
-          <h3>building construction</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus.</p>
+          <img src="{{url}}{{list.serviceimage}}" alt="">
+          <h3>{{list.name}}</h3>
+          <p>{{list.description}}</p>
        </div>
- 
+       </div>
+<!--  
        <div class="box">
           <img src="../../../../assets/images/service-2.png" alt="">
           <h3>house renovation</h3>
@@ -51,7 +53,7 @@
           <h3>building renovation</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, necessitatibus.</p>
        </div>
- 
+  -->
     </div>
  
  </section>

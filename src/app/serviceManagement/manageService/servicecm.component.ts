@@ -6,6 +6,8 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { DialogSerComponent } from "../dialogService/dialogService.component";
 import { SerServiceService } from "app/services/serService.service";
+import { ContentObserver } from "@angular/cdk/observers";
+import { SiteManageService } from "app/services/siteManage.service";
 @Component({
   selector: "app-servicecm",
   templateUrl: "./servicecm.component.html",
@@ -15,14 +17,21 @@ export class servicecmComponent implements OnInit {
   displayedColumns: string[] = ["name",  "siteName", "serviceimage", "action"];
   dataSource!: MatTableDataSource<any>;
 
+
+  url: any = "http://localhost:3000/";
+
+  siteData:any;
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private dialog: MatDialog, private service: SerServiceService) { }
+  constructor(private dialog: MatDialog, private service: SerServiceService,private httpSite:SiteManageService) { }
   // this dialog box is for saving the site
   openDialog() {
     this.dialog
       .open(DialogSerComponent, {
         width: "30%",
+        data:{siteData:this.siteData}
       })
       .afterClosed()
       .subscribe((val) => {
@@ -31,6 +40,7 @@ export class servicecmComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getAllserviceDetail();
+    this.getSiteDetails()
     console.log("coming")
   }
 
@@ -48,12 +58,27 @@ export class servicecmComponent implements OnInit {
         }
       });
   }
+  getSiteDetails(){
+    this.httpSite.siteGet().subscribe({
+     next:(res)=>{
+       this.siteData = res
+     },
+     error:(e)=>{
+       
+     }
+    })
+   }
+
+   
   // geting all data from server
   getAllserviceDetail() {
     this.service.serviceGet().subscribe({
       next: (res: any) => {
-        console.log("coming",res)
+        console.log("service images",res)
         this.dataSource = new MatTableDataSource(res);
+      
+        
+   
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -65,6 +90,7 @@ export class servicecmComponent implements OnInit {
 
   //deleting data from the server by id
   deleteData(id: any) {
+    console.log(id)
   this.service.serviceDelete(id).subscribe({
         next: (res) => {
         alert("service deleted successfully");
