@@ -3,8 +3,8 @@
     <h1 class="heading"> our projects </h1>
  
     <div class="box-container">
-      <div *ngFor="let list of SiteDataDisplay">
-       <a href="../../../../assets/images/project-1.jpg" class="box">
+      <div *ngFor="let list of SiteDataDisplay |  slice: (SiteDataDisplay.length > 8 ? SiteDataDisplay.length - 8 : 0); index as i">
+       <a href="#/login" class="box">
           <div class="image">
              <img src="{{url}}{{list.brandLogo}}" alt="">
           </div>
