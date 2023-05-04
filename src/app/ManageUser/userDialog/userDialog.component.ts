@@ -11,6 +11,7 @@ import { ManageUserServiceService } from "app/services/manageUserService.service
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { alertcenter } from "googleapis/build/src/apis/alertcenter";
 import { SiteManageService } from "app/services/siteManage.service";
+import { ContentObserver } from "@angular/cdk/observers";
 @Component({
   selector: "app-user-dialog",
   templateUrl: "./userDialog.component.html",
@@ -21,7 +22,8 @@ export class UserDialogComponent implements OnInit {
   getFlatdata:any;
   getSiteData = this.editData.siteData
   siteId:any
-  show:any = true
+  onlyUserField:any = true
+  onlySiteField:any = true
 
 userTitle:String = "Add User"
 
@@ -31,6 +33,7 @@ userTitle:String = "Add User"
     private dialogref: MatDialogRef<UserDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public editData: any
   ) {
+console.log(this.editData);
 
    
   } 
@@ -43,22 +46,29 @@ userTitle:String = "Add User"
     email: new FormControl("",[Validators.required]),
     siteName:new FormControl("",[Validators.required]),
     flatNo :new FormControl ("",[Validators.required]),
-    site_id: new FormControl("",[])
+   
   });
 
   ngOnInit(): void {
 
+    if (this.editData.flat && this.editData.siteData){
+      this.onlySiteField = !this.onlySiteField
+      this.customBtn="Add Flat for user"
+     
+
+    }
     if (this.editData.row) {
-      this.show = !this.show
+      this.onlyUserField = !this.onlyUserField
       this.userTitle = "Update User"
       this.customBtn = "update";
       this.AddUser.controls["name"].setValue(this.editData.row.name);
       this.AddUser.controls["email"].setValue(this.editData.row.email);
     }
+   
   }
 
   userAdd(data: any) {
-    if (!this.editData.row) {
+    if (!this.editData.row && !this.editData.flat ) {
      // if(this.editData.valid){
       this.http.AddUser(this.AddUser.value).subscribe({
         next: (res) => {
@@ -71,7 +81,16 @@ userTitle:String = "Add User"
         },
       });
   //  }
-  } else {
+ 
+  }
+  else if(this.editData.flat){
+    console.log("this is the flatadding separately");
+    
+    this.flatData()
+  } 
+  else {
+    console.log("i am not called");
+    
       this.editUserData();
     }
   }
@@ -91,6 +110,25 @@ userTitle:String = "Add User"
       },
     });
   }
+
+  flatData(){
+    console.log(this.editData.flat);
+    
+    
+    this.http.separateFlatAdd(this.editData.flat,this.AddUser.value).subscribe({
+      next:(res)=>{
+        alert("flat is assiged to the user")
+        this.dialogref.close("save")
+      },
+      error:(e)=>{
+        alert("unable to assign flat to the user")
+        this.dialogref.close('cancel')
+      }
+    })
+
+  }
+
+
   
   selectSite(){
     for(let item of this.getSiteData){
