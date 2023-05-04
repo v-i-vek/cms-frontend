@@ -39,4 +39,7 @@ updateUserAdmin(id:any,data:any){
 sendMail(id){
   return this.http.get(this.baseUrl+"AddUser/mail/"+id)
 }
+separateFlatAdd(id:any,data:any){
+  return this.http.put(this.baseUrl+"userExtraFlat/"+id,data)
+}
 }

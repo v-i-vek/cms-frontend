@@ -53,15 +53,16 @@
             color="Accent"
             (click)="sendMail(row)"
           >
-            <mat-icon >email</mat-icon>
+            <mat-icon color="warn">email</mat-icon>
           </button>
           <button
           mat-icon-button
-          color="Accent"
+         
           (click)="onView(row)"
         >
-          <mat-icon >remove_red_eye</mat-icon>
+          <mat-icon color="accent"  >remove_red_eye</mat-icon>
         </button>
+        <button mat-icon-button (click)="onAddFlat(row._id)"><mat-icon>playlist_add</mat-icon>></button>
           </td>
         </ng-container>
 

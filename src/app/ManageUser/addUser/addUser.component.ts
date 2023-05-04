@@ -106,4 +106,13 @@ export class AddUserComponent implements OnInit {
     })
 
    }
+
+   onAddFlat(flat:any){
+    console.log(flat)
+    this.dialog.open(UserDialogComponent,{
+      width:"30%",
+      data: ({flat,siteData:this.siteData})
+
+    })
+   }
 }
