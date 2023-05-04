@@ -24,6 +24,7 @@ export class DialogSiteComponent implements OnInit {
   siteData: any;
   site_submit_form!: FormGroup;
   editImage: any;
+  siteTitle:String = "Add Site"
 
   constructor(
     private siteService: SiteManageService,
@@ -54,6 +55,7 @@ export class DialogSiteComponent implements OnInit {
   ngOnInit(): void {
     //this is inserting data from table to dialog box
     if (this.editData) {
+      this.siteTitle="Update Site"
       this.dialogbtn = "update";
      
 
