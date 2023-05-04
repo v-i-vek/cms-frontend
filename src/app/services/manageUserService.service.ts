@@ -32,6 +32,10 @@ getsingleUser(id:any){
 updateUser(id:any,data:any){
   return this.http.put(this.baseUrl+"AddUser/"+id,data)
 }
+updateUserAdmin(id:any,data:any){
+  return this.http.put(this.baseUrl+"AddUser/admin/"+id,data)
+}
+
 sendMail(id){
   return this.http.get(this.baseUrl+"AddUser/mail/"+id)
 }

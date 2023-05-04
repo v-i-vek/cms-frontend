@@ -21,8 +21,9 @@ export class UserDialogComponent implements OnInit {
   getFlatdata:any;
   getSiteData = this.editData.siteData
   siteId:any
+  show:any = true
 
-
+userTitle:String = "Add User"
 
   constructor(
     private http: ManageUserServiceService,
@@ -48,12 +49,11 @@ export class UserDialogComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.editData.row) {
+      this.show = !this.show
+      this.userTitle = "Update User"
       this.customBtn = "update";
-      this.AddUser.controls["name"].setValue(this.editData.name);
-      this.AddUser.controls["email"].setValue(this.editData.email);
-      this.AddUser.controls["flatNo"].setValue(this.editData.flatNo);
-      this.AddUser.controls["siteName"].setValue(this.editData.siteName)
-      this.AddUser.controls["site_id"].setValue(this.editData.site_id);
+      this.AddUser.controls["name"].setValue(this.editData.row.name);
+      this.AddUser.controls["email"].setValue(this.editData.row.email);
     }
   }
 
@@ -78,8 +78,8 @@ export class UserDialogComponent implements OnInit {
 
 
   editUserData() {
-    console.log("this is called",this.editData)
-    this.http.updateUser(this.AddUser.value, this.editData._id).subscribe({
+    console.log("this is called",this.editData.row._id)
+    this.http.updateUserAdmin(this.editData.row._id,this.AddUser.value).subscribe({
       next: (res) => {
         alert("User Updated successfully");
         this.dialogref.close("save");

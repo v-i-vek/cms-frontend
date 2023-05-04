@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add user</h1>
+<h1 mat-dialog-title>{{userTitle}}</h1>
 
 <div mat-dialog-content>
   <form
@@ -16,10 +16,11 @@
      
     </mat-form-field>
 
+    <div *ngIf="show">
     <mat-form-field appearance="outline">
       <mat-label>Select Site</mat-label>
       <mat-select formControlName="siteName">
-        <mat-option  *ngFor="let item of getSiteData"  [value]="item" (onSelectionChange)="getFlatDetails($event)">{{item.siteName}}</mat-option>
+        <mat-option  *ngFor="let item of getSiteData"   [value]="item" (onSelectionChange)="getFlatDetails($event)">{{item.siteName}}</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -30,6 +31,7 @@
         
       </mat-select>
     </mat-form-field>
+  </div>
     
 
     <div mat-dialog-actions [align]="'end'">
