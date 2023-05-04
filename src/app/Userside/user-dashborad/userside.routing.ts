@@ -6,6 +6,7 @@ import { EditProfileComponent } from '../userdashboard-home/profileuser/edit-pro
 import { LogoutComponent } from 'app/logout/logout.component';
 import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
 import { UserservicesComponent } from '../userdashboard-home/userservices/userservices.component';
+import { CustomRequestComponent } from '../userdashboard-home/userservices/custom-request/custom-request.component';
 
 
 
@@ -14,8 +15,9 @@ export const userLayoutRoutes: Routes = [
     {path:'profile', component:ProfileuserComponent},
     {path:'Edit', component:EditProfileComponent},     
     {path:'propertydetails', component:PostsComponent},
-    {path:'userservices', component:UserservicesComponent},
+    {path:'usercService', component:UserservicesComponent},
     {path:'logoutuser', component:LogoutUserComponent},
+    {path:'customService',component:CustomRequestComponent}
       
   
 ];
