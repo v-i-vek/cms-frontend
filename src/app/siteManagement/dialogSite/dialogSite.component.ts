@@ -38,7 +38,9 @@ export class DialogSiteComponent implements OnInit {
       category: new FormControl("", [Validators.required,]),
       image: new FormControl(""),
       noOfFloor:new FormControl("",[Validators.required]),
-      noOfFlatPerFloor:new FormControl("",[Validators.required])
+      noOfFlatPerFloor:new FormControl("",[Validators.required]),
+      description:new FormControl("",[Validators.required]),
+      status:new FormControl("",[Validators.required])
       // fileSource: new FormControl("", [Validators.required]),
     });
   }
@@ -65,6 +67,9 @@ export class DialogSiteComponent implements OnInit {
       this.site_submit_form.controls["image"].setValue(this.editData.image);
       this.site_submit_form.controls["noOfFloor"].setValue(this.editData.noOfFloor),
       this.site_submit_form.controls["noOfFlatPerFloor"].setValue(this.editData.noOfFlatPerFloor)
+      this.site_submit_form.controls["description"].setValue(this.editData.description)
+      this.site_submit_form.controls["status"].setValue(this.editData.status)
+
     }
   }
 
@@ -84,6 +89,9 @@ export class DialogSiteComponent implements OnInit {
         formData.append("category", this.site_submit_form.value.category);
         formData.append("noOfFloor",this.site_submit_form.value.noOfFloor);
         formData.append("noOfFlatPerFloor",this.site_submit_form.value.noOfFlatPerFloor)
+        formData.append("description", this.site_submit_form.value.description)
+        formData.append("status", this.site_submit_form.value.status)
+
 
         this.siteService.sitePost(formData).subscribe({
           next: (res) => {
@@ -115,6 +123,9 @@ async  updateProduct() {
     formData.append("category", this.site_submit_form.value.category);
     formData.append("noOfFloor",this.site_submit_form.value.noOfFloor);
     formData.append("noOfFlatPerFloor",this.site_submit_form.value.noOfFlatPerFloor)
+    formData.append("description", this.site_submit_form.value.description)
+    formData.append("status", this.site_submit_form.value.status)
+
 
   await  this.siteService
       .siteUpdate(formData, this.editData._id)

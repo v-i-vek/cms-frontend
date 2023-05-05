@@ -28,6 +28,23 @@
       />
     </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label> Site Description</mat-label>
+      <input
+        matInput
+        placeholder="enter Site Description"
+        formControlName="description"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Upcoming"  >Upcoming</mat-option>
+        <mat-option value="Completed"  >Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
+
 
     <!-- number of floors -->
     <mat-form-field appearance="outline">

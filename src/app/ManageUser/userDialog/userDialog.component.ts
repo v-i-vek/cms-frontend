@@ -54,6 +54,7 @@ console.log(this.editData);
     if (this.editData.flat && this.editData.siteData){
       this.onlySiteField = !this.onlySiteField
       this.customBtn="Add Flat for user"
+      this.userTitle = "Add"
      
 
     }
@@ -137,9 +138,11 @@ console.log(this.editData);
   }
   getFlatDetails($event){
     //console.log($event.source.value)
+
     this.getFlatdata = $event.source.value.flatDetails;
-   for( let item of this.getFlatdata)
-    console.log(item.flatNo)
+    console.log("this is flat details",this.getFlatdata)
+  //  for( let item of this.getFlatdata)
+  //   console.log(item.flatNo)
    
    
   }
