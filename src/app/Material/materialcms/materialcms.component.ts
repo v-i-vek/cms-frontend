@@ -111,8 +111,12 @@ export class MaterialcmsComponent implements OnInit {
       return "done";
     } else if (status === "Not Available") {
       return "cancel";
+    } else if (status === "In Progress") {
+      return "fiber_manual_record";
     } else {
       return "";
     }
   }
+  
+  
 }

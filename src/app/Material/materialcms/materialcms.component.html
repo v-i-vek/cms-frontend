@@ -59,11 +59,19 @@
         <ng-container matColumnDef="Material_status">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Material status</th>
           <td mat-cell *matCellDef="let row">
-            <ng-container *ngIf="row.Material_status === 'tick'; else cancel">
-              <mat-icon>done</mat-icon>
+            <ng-container *ngIf="row.Material_status === 'tick'; else cancelOrInProgress">
+              <mat-icon style="color: rgb(52, 158, 52);">done</mat-icon>
+              <span>AVAILABLE</span>
             </ng-container>
-            <ng-template #cancel>
-              <mat-icon>cancel</mat-icon>
+            <ng-template #cancelOrInProgress>
+              <ng-container *ngIf="row.Material_status === 'cancel'; else inProgress">
+                <mat-icon style="color:rgb(243, 41, 41);">cancel</mat-icon>
+                <span>NOT AVAILABLE</span>
+              </ng-container>
+              <ng-template #inProgress>
+                <mat-icon style="color:rgb(190, 190, 91);">fiber_manual_record</mat-icon>
+                <span>IN PROGRESS</span>
+              </ng-template>
             </ng-template>
           </td>
         </ng-container>
