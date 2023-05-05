@@ -52,12 +52,12 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Material status</mat-label>
-        <input
-          matInput
-          placeholder="Enter material-status"
-          formControlName="Material_status"
-        />
+        <mat-select placeholder="Select material status" formControlName="Material_status">
+          <mat-option value="tick">Tick</mat-option>
+          <mat-option value="cancel">Cancel</mat-option>
+        </mat-select>
       </mat-form-field>
+      
 
       <div mat-dialog-actions [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
