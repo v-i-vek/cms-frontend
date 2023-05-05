@@ -57,13 +57,18 @@
         </ng-container>
 
         <ng-container matColumnDef="Material_status">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            Material status
-          </th>
-          <td mat-cell *matCellDef="let row">{{ row.Material_status }}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Material status</th>
+          <td mat-cell *matCellDef="let row">
+            <ng-container *ngIf="row.Material_status === 'tick'; else cancel">
+              <mat-icon>done</mat-icon>
+            </ng-container>
+            <ng-template #cancel>
+              <mat-icon>cancel</mat-icon>
+            </ng-template>
+          </td>
         </ng-container>
-     
-
+        
+        
         <ng-container matColumnDef="Action">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
           <td mat-cell *matCellDef="let row">

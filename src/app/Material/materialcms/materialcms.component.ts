@@ -106,4 +106,13 @@ export class MaterialcmsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  getStatusIcon(status: string) {
+    if (status === "Available") {
+      return "done";
+    } else if (status === "Not Available") {
+      return "cancel";
+    } else {
+      return "";
+    }
+  }
 }
