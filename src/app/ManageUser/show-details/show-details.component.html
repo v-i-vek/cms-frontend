@@ -1,3 +1,4 @@
+<div class="cardSize">
 <mat-card>
   <mat-card-header>
     <mat-card-title>Owner Details</mat-card-title>
@@ -14,14 +15,19 @@
       </mat-tab>
       <mat-tab
         label="Flats/Offices"
-        *ngFor="let item of editData.flatUserDetails"
-      ><div class="mat-tab-body-content" >
+        
+      >
+      
+      <div class="mat-tab-body-content" *ngFor="let item of editData.flatUserDetails">
         <p><b>FlatNo</b> : {{ item.flatNo }}</p>
         <p><b>Site</b> : {{ item.siteName.siteName }}</p>
+        <mat-divider></mat-divider>
       </div>
       </mat-tab>
-      <mat-tab label="Site" *ngFor="let item of editData.flatUserDetails">
-        <div class="mat-tab-body-content" >
+      <mat-tab label="Site" >
+
+
+        <div class="mat-tab-body-content"*ngFor="let item of editData.flatUserDetails">
         <p><b>Site Name</b> : {{ item.siteName.siteName }}</p>
         <p><b>Category</b> : {{ item.siteName.category }}</p>
         <p><b>location</b> : {{ item.siteName.location }}</p>
@@ -32,3 +38,4 @@
     </mat-tab-group>
   </mat-card-content>
 </mat-card>
+</div>
