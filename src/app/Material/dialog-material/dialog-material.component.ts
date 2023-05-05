@@ -44,12 +44,13 @@ export class DialogMaterialComponent implements OnInit {
   }
 
   materialStatusValidator(control: AbstractControl) {
-    if (control.value === 'tick' || control.value === 'cancel') {
+    if (control.value === 'tick' || control.value === 'cancel' || control.value === 'in progress') {
       return null;
     } else {
       return { invalidStatus: true };
     }
   }
+  
 
     
   onFileSelected(event: any) {
