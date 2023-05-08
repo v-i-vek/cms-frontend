@@ -4,7 +4,7 @@
   <form
     [formGroup]="AddUser" (ngSubmit)="userAdd(AddUser.value)"
   >
- 
+ <div *ngIf="onlySiteField">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput placeholder="Enter user Name" formControlName="name" />
@@ -15,8 +15,9 @@
       <input matInput placeholder="Enter Email " formControlName="email"  />
      
     </mat-form-field>
+  </div>
 
-    <div *ngIf="show">
+    <div *ngIf="onlyUserField">
     <mat-form-field appearance="outline">
       <mat-label>Select Site</mat-label>
       <mat-select formControlName="siteName">
@@ -36,7 +37,7 @@
 
     <div mat-dialog-actions [align]="'end'">
       <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" >
       {{customBtn}}
       </button>
     </div>

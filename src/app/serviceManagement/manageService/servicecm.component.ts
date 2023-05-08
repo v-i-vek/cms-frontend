@@ -8,6 +8,9 @@ import { DialogSerComponent } from "../dialogService/dialogService.component";
 import { SerServiceService } from "app/services/serService.service";
 import { ContentObserver } from "@angular/cdk/observers";
 import { SiteManageService } from "app/services/siteManage.service";
+import { Router } from "@angular/router";
+
+
 @Component({
   selector: "app-servicecm",
   templateUrl: "./servicecm.component.html",
@@ -25,7 +28,8 @@ export class servicecmComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private dialog: MatDialog, private service: SerServiceService,private httpSite:SiteManageService) { }
+  constructor(private dialog: MatDialog, private service: SerServiceService,private httpSite:SiteManageService,private router: Router) { }
+ 
   // this dialog box is for saving the site
   openDialog() {
     this.dialog
@@ -43,6 +47,7 @@ export class servicecmComponent implements OnInit {
     this.getSiteDetails()
     console.log("coming")
   }
+
 
   //this dialog box for the editing the site
   editserviceDetails(row: any) {
@@ -111,4 +116,5 @@ export class servicecmComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  
 }

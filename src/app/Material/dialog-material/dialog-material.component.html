@@ -7,7 +7,7 @@
       (ngSubmit)="materialPostData(material_form.value)"
     >
       <mat-form-field appearance="outline">
-        <mat-label>Material_name</mat-label>
+        <mat-label>Material name</mat-label>
         <input
           matInput
           placeholder="Enter material-name"
@@ -16,7 +16,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Material_quantity</mat-label>
+        <mat-label>Material quantity</mat-label>
         <input
           matInput
           placeholder="Enter material-quantity"
@@ -42,7 +42,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Material_cost</mat-label>
+        <mat-label>Material cost</mat-label>
         <input
           matInput
           placeholder="Enter material-cost"
@@ -51,13 +51,14 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Material_status</mat-label>
-        <input
-          matInput
-          placeholder="Enter material-status"
-          formControlName="Material_status"
-        />
+        <mat-label>Material status</mat-label>
+        <mat-select placeholder="Select material status" formControlName="Material_status">
+          <mat-option value="tick">Tick</mat-option>
+          <mat-option value="cancel">Cancel</mat-option>
+          <mat-option value="in progress">In Progress</mat-option>
+        </mat-select>
       </mat-form-field>
+      
 
       <div mat-dialog-actions [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close>cancel</button>

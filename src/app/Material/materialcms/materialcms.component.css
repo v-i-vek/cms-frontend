@@ -48,3 +48,20 @@ img{
     width: 100%;
   }
   
+  .mat-icon {
+    font-size: 16px; 
+    vertical-align: middle; 
+  }
+  
+  .mat-icon.done {
+    color: rgb(52, 158, 52); 
+  }
+  
+  .mat-icon.cancel {
+    color: rgb(243, 41, 41); 
+  }
+  
+  .mat-icon.in-progress {
+    color: rgb(190, 190, 91); 
+  }
+  

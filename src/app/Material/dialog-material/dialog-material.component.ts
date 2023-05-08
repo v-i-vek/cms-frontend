@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, Inject } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, AbstractControl } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MaterialService } from "app/services/material.service";
 
@@ -39,9 +39,20 @@ export class DialogMaterialComponent implements OnInit {
         Validators.required,
         Validators.min(10),
       ]),
-      Material_status: new FormControl("", [Validators.required]),
+      Material_status: new FormControl(null, [this.materialStatusValidator]),
     });
   }
+
+  materialStatusValidator(control: AbstractControl) {
+    if (control.value === 'tick' || control.value === 'cancel' || control.value === 'in progress') {
+      return null;
+    } else {
+      return { invalidStatus: true };
+    }
+  }
+  
+
+    
   onFileSelected(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];

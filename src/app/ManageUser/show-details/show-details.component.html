@@ -1,3 +1,4 @@
+<div class="cardSize">
 <mat-card>
   <mat-card-header>
     <mat-card-title>Owner Details</mat-card-title>
@@ -6,24 +7,35 @@
   <mat-card-content>
     <mat-tab-group>
       <mat-tab label="Owner">
-        <p><b>Name</b> : {{ editData.name }}</p>
-        <p><b>Email</b> : {{ editData.email }}</p></mat-tab
-      >
+        <div class="mat-tab-body-content">
+          <p><b>Name</b> : {{ editData.name }}</p>
+
+          <p><b>Email</b> : {{ editData.email }}</p>
+        </div>
+      </mat-tab>
       <mat-tab
         label="Flats/Offices"
-        *ngFor="let item of editData.flatUserDetails"
-        ><p><b>FlatNo</b> : {{ item.flatNo }}</p>
+        
+      >
+      
+      <div class="mat-tab-body-content" *ngFor="let item of editData.flatUserDetails">
+        <p><b>FlatNo</b> : {{ item.flatNo }}</p>
         <p><b>Site</b> : {{ item.siteName.siteName }}</p>
+        <mat-divider></mat-divider>
+      </div>
       </mat-tab>
-      <mat-tab label="Site" *ngFor="let item of editData.flatUserDetails">
+      <mat-tab label="Site" >
+
+
+        <div class="mat-tab-body-content"*ngFor="let item of editData.flatUserDetails">
         <p><b>Site Name</b> : {{ item.siteName.siteName }}</p>
         <p><b>Category</b> : {{ item.siteName.category }}</p>
         <p><b>location</b> : {{ item.siteName.location }}</p>
-        <p><b>No Of Floor</b> : {{ item.siteName.noOfFloor}}</p>
-        <p><b>No Of Flats</b> : {{ item.siteName.noOfFlatPerFloor}}</p>
-
-
+        <p><b>No Of Floor</b> : {{ item.siteName.noOfFloor }}</p>
+        <p><b>No Of Flats</b> : {{ item.siteName.noOfFlatPerFloor }}</p>
+      </div>
       </mat-tab>
     </mat-tab-group>
   </mat-card-content>
 </mat-card>
+</div>

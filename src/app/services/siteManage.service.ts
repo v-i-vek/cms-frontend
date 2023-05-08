@@ -24,4 +24,7 @@ export class SiteManageService {
   siteDelete(id: any) {
     return this.http.delete(this.baseUrl+"deleteSite/" + id);
   }
+  siteStatusUpdate(id:any,data){
+    return this.http.patch(this.baseUrl+"updataStatus/"+id,data)
+  }
 }

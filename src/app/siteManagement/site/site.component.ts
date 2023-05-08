@@ -7,6 +7,7 @@ import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
 import { ShowSiteComponent } from "../show-site/show-site.component";
+import { FormControl, FormGroup } from "@angular/forms";
 declare var $: any;
 @Component({
   selector: "app-notifications",
@@ -17,11 +18,13 @@ export class siteComponent implements OnInit {
   displayedColumns: string[] = [
     "siteName",
     "location",
+    "status",
     "category",
     "brandLogo",
     "action",
   ];
 
+  
   url: any = "http://localhost:3000/"; // for giving the path of the image
   dataSource!: MatTableDataSource<any>;
 
@@ -114,5 +117,28 @@ export class siteComponent implements OnInit {
       width:"50%",
       data:row
     })
+  }
+
+  updateStatus(row:any){
+
+    let currentStatus 
+    if(row.status=='ongoing'){
+      currentStatus = "Upcoming"
+     
+    }
+    else{
+      currentStatus = "ongoing"
+    }
+
+    this.siteService.siteStatusUpdate(row._id,{status:currentStatus}).subscribe({
+      next:(res)=>{
+        alert("Status changed successfully")
+      },
+      error:(err)=>{
+        alert("unambe to update")
+      }
+    })
+  
+
   }
 }
