@@ -53,7 +53,7 @@ import { AuthGuard } from './services/auth.guard';
 import { TokeninterInterceptor } from './services/tokeninter.interceptor';
 import {NgToastModule} from 'ng-angular-popup';
 import { UserservicesComponent } from './Userside/userdashboard-home/userservices/userservices.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -86,6 +86,8 @@ import { UserservicesComponent } from './Userside/userdashboard-home/userservice
     MatRadioModule,
     MatTabsModule,
     NgToastModule,
+    MatGridListModule,
+
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true
@@ -117,7 +119,7 @@ import { UserservicesComponent } from './Userside/userdashboard-home/userservice
     DialogMaterialComponent,
     ShowDetailsComponent,
     ShowSiteComponent,
-    
+  
   
  
   ],
