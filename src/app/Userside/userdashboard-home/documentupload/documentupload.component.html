@@ -1,0 +1,98 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Construcion Management System</mat-card-title>
+    <mat-card-subtitle>Document</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+   
+    <form  [formGroup]="uploadimageFrom" >
+      <div style="width: 40% !important ;" >
+      <mat-form-field appearance="fill">
+        <mat-label>Cars</mat-label>
+        <select matNativeControl required (change)="docChange($event.target.value)" >
+          <option >-----select-----</option>
+          <option *ngFor="let doc of UploadDoc" [value]="doc.name" >{{doc.name}}</option>
+        </select>
+      </mat-form-field>
+    </div>
+            <input  id="input-file-id" multiple type="hidden" formControlName="documentName" (change)="onChange($event)" />
+            <input  id="input-file-id" multiple type="file" formControlName="documentpdf" (change)="onChange($event)" /> 
+            <button  mat-raised-button color="primary" (click)="postDocumentUpload()" >Upload</button>
+    </form>
+<!-- 
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>3</mat-grid-tile>
+      <mat-grid-tile>4</mat-grid-tile>
+    </mat-grid-list> -->
+
+
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Document Name</th>
+          <th scope="col">Document Download link</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr  *ngFor="let data of  userDataup"  >
+          <th scope="row">{{data.documentName}}</th>
+          <td *ngFor="let doc of data.documentpdf" >
+       <a href="{{url}}{{doc.path}}">Download</a>  
+          </td>
+        </tr>
+    
+      </tbody>
+    </table>
+    
+        <!-- </td> -->
+         
+     
+    <!-- <form  [formGroup]="uploadimageFrom" >
+        <tr>
+          <td>Pan Card</td>
+          <td>
+            <input class="ng-hide" id="input-file-id" multiple type="file" />
+            <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label></td>
+    
+          <td>Perview</td>
+        </tr>
+    </form>
+
+    <form  [formGroup]="uploadimageFrom" >
+        <tr>
+          <td>bank passbook</td>
+          <td>
+            <input class="ng-hide" id="input-file-id" multiple type="file" />
+            <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label></td>
+               
+        
+          <td><input type="button" (click)="postDocumentUpload()" >Upload</td>
+          <td>Perview</td>
+        </tr>
+    </form>
+
+    <form  [formGroup]="uploadimageFrom" >
+        <tr>
+          <td>Voter Id Card</td>
+          <td>
+            <input class="ng-hide" id="input-file-id" multiple type="file" />
+            <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label></td>
+               
+        
+
+          <td>Perview</td>
+        </tr>
+   </form> -->
+
+    <!-- <mat-card-actions [align]="'end'">  -->
+        <!-- <button mat-raised-button color="primary">Upload</button> -->
+      <!-- </mat-card-actions>
+      -->
+  </mat-card-content>
+  
+  
+</mat-card>

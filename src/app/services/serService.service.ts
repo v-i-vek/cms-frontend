@@ -11,21 +11,25 @@ export class SerServiceService {
   
 
   constructor(private http : HttpClient) { }
-  servicePost(data:any){
+servicePost(data:any){
     return this.http.post(this.baseUrl+"services",data)
     }
-    serviceGet(){
+serviceGet(){
      
     return this.http.get(this.baseUrl+"service")
     }
-    serviceUpdate(data:any,id:any){
+serviceUpdate(data:any,id:any){
   
       return this.http.patch(this.baseUrl+"services"+id,data)
     }
-    serviceDelete(id:any){
+serviceDelete(id:any){
     
       return this.http.delete(this.baseUrl+"services/"+id)
     }
+addService(data:any) {
+  return this.http.post(this.baseUrl+"api/services",data)
+}
+ 
   }
   
   

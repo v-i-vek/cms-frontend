@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/profile', title: 'Profile',  icon:'person', class: '' },
     { path: '/propertydetails', title: 'property details',  icon:'domain', class: '' },
     { path: '/usercService', title: 'RequestService',  icon:'layers', class: '' },
+    { path: '/document', title: 'Document Upload',  icon:'cloud_upload', class: '' },
     { path: '/logoutuser', title: 'Logout',  icon:'close', class: '' },
 
     
@@ -51,7 +52,7 @@ export class SidebarUserComponent implements OnInit {
 // let dataValues = data.split(/([0-9]+)/)
 
 
-      console.log(this.userdata.image)
+//      console.log(this.userdata.image)
     })
   }
 

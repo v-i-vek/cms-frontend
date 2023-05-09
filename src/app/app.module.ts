@@ -54,6 +54,9 @@ import { TokeninterInterceptor } from './services/tokeninter.interceptor';
 import {NgToastModule} from 'ng-angular-popup';
 import { UserservicesComponent } from './Userside/userdashboard-home/userservices/userservices.component';
 
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
 
 
 @NgModule({
@@ -86,6 +89,10 @@ import { UserservicesComponent } from './Userside/userdashboard-home/userservice
     MatRadioModule,
     MatTabsModule,
     NgToastModule,
+    MatListModule,
+    MatCheckboxModule,
+    
+
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true
@@ -117,6 +124,7 @@ import { UserservicesComponent } from './Userside/userdashboard-home/userservice
     DialogMaterialComponent,
     ShowDetailsComponent,
     ShowSiteComponent,
+   
     
   
  
