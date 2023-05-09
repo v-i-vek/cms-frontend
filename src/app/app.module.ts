@@ -89,7 +89,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatRadioModule,
     MatTabsModule,
     NgToastModule,
-    MatGridListModule,
+    MatListModule,
+    MatCheckboxModule,
+    
 
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
