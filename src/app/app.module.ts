@@ -89,6 +89,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatRadioModule,
     MatTabsModule,
     NgToastModule,
+    MatGridListModule,
+
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true

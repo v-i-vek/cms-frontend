@@ -31,7 +31,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import { LogoutUserComponent } from '../userdashboard-home/logout-user/logout-user.component';
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule, POSITION } from 'ngx-ui-loader';
 import { CustomRequestComponent } from '../userdashboard-home/userservices/custom-request/custom-request.component';
-
+import { DocumentuploadComponent } from '../userdashboard-home/documentupload/documentupload.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
   imports: [
     CommonModule,
@@ -63,6 +65,7 @@ import { CustomRequestComponent } from '../userdashboard-home/userservices/custo
     MatListModule,
     MatDividerModule,
     MatRadioModule,
+    MatGridListModule
    
     
     
@@ -74,7 +77,9 @@ import { CustomRequestComponent } from '../userdashboard-home/userservices/custo
    EditProfileComponent,
   LogoutUserComponent,
   UserservicesComponent,
-  CustomRequestComponent
+  CustomRequestComponent,
+  DocumentuploadComponent,
+  
  
   ]
 })
