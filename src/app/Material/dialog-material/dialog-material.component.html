@@ -12,6 +12,7 @@
           matInput
           placeholder="Enter material-name"
           formControlName="Material_name"
+          value="row[0].Material_name"
         />
       </mat-form-field>
 
@@ -29,18 +30,25 @@
         <input matInput placeholder="Enter unit" formControlName="unit" />
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Select Site</mat-label>
-        <mat-select formControlName="siteName">
-          <mat-option
-            *ngFor="let item of getSiteData"
-            [value]="item"
-            (onSelectionChange)="getFlatDetails($event)"
-            >{{ item.siteName }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-
+      <div *ngIf="onlyUserField">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Site</mat-label>
+          <mat-select formControlName="siteName">
+            <mat-option
+              *ngFor="let item of getSiteData"
+              [value]="item"
+              (onSelectionChange)="getFlatDetails($event)"
+              >{{ item.siteName }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="onlySiteField">
+        <mat-form-field appearance="outline">
+          <mat-label>Site name</mat-label>
+          <input matInput formControlName="siteName"  />
+        </mat-form-field>
+      </div>
       <mat-form-field appearance="outline">
         <mat-label>Material cost</mat-label>
         <input
@@ -52,13 +60,15 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Material status</mat-label>
-        <mat-select placeholder="Select material status" formControlName="Material_status">
+        <mat-select
+          placeholder="Select material status"
+          formControlName="Material_status"
+        >
           <mat-option value="tick">Tick</mat-option>
           <mat-option value="cancel">Cancel</mat-option>
           <mat-option value="in progress">In Progress</mat-option>
         </mat-select>
       </mat-form-field>
-      
 
       <div mat-dialog-actions [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close>cancel</button>
