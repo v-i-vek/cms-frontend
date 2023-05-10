@@ -29,7 +29,10 @@ h2 {
   margin: 40px 8px 10px 8px;
   color: #cccccc;
 }
-
+*[_ngcontent-lon-c64] {
+  box-sizing: border-box;
+  background: #000000;
+}
 
 
 /* STRUCTURE */
@@ -55,6 +58,8 @@ h2 {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
+ background: floralwhite;
+  
 }
 
 #formFooter {
@@ -162,7 +167,6 @@ label.validation-message{
 }
 
 
-
 /* ANIMATIONS */
 
 /* Simple CSS3 Fade-in-down Animation */
@@ -173,6 +177,7 @@ label.validation-message{
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  background: #00000024;
 }
 
 @-webkit-keyframes fadeInDown {
