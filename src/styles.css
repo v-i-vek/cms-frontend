@@ -491,6 +491,13 @@ section {
   line-height: 2;
   padding: 1rem 0;
 }
+.mat-drawer-transition .mat-drawer-content {
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-property: transform,margin-left,margin-right;
+    background: beige;
+}
+
 
 .about .box-container {
   margin-top: 3rem;
@@ -504,6 +511,16 @@ section {
           align-items: flex-end;
 }
 
+.mat-toolbar-row, .mat-toolbar-single-row {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    background: linear-gradient(45deg, black, transparent);
+}
 .about .box-container .box {
   text-align: center;
   background: var(--light-bg);
