@@ -519,7 +519,7 @@ section {
     flex-direction: row;
     align-items: center;
     white-space: nowrap;
-    background: linear-gradient(45deg, black, transparent);
+   
 }
 .about .box-container .box {
   text-align: center;
