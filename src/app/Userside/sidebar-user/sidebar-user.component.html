@@ -13,7 +13,7 @@
         <div class="usermenu-item">
             <button mat-button class="usermenubutton"  *ngFor="let menuItem of menuItems" class="{{menuItem.class}}"  >
                <a [routerLink]="[menuItem.path]">
-                <mat-icon >{{menuItem.icon}}</mat-icon>
+                <mat-icon  >{{menuItem.icon}}</mat-icon>
                 <span>{{menuItem.title}}</span>
             </a>
             </button>
