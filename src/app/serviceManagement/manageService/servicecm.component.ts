@@ -24,6 +24,14 @@ export class servicecmComponent implements OnInit {
   url: any = "http://localhost:3000/";
 
   siteData:any;
+  userName: string = '';
+  name: string = '';
+  description: string = ''
+  
+
+  displayedUserColumns: string[] = ["User Name","Services Name",'Description'];
+  dataSourceUser!: MatTableDataSource<any>;
+
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -45,6 +53,7 @@ export class servicecmComponent implements OnInit {
   ngOnInit(): void {
     this.getAllserviceDetail();
     this.getSiteDetails()
+    this.getUserSeervices();
     console.log("coming")
   }
 
@@ -115,6 +124,22 @@ export class servicecmComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  getUserSeervices(): void {  
+    this.service.getUserSeervices().subscribe({
+      next: (res: any) => {
+        console.log("user services",res)
+        this.dataSourceUser = new MatTableDataSource(res);
+      
+        
+   
+        this.dataSourceUser.paginator = this.paginator;
+        this.dataSourceUser.sort = this.sort;
+      },
+      error: (error) => {
+        alert("error occured while loading the data")
+      },
+    });
   }
   
 }
