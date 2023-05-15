@@ -3,7 +3,9 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort, Sort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
-
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { DialogMaterialComponent } from "../dialog-material/dialog-material.component";
 import { MaterialService } from "app/services/material.service";
 import { SiteManageService } from "app/services/siteManage.service";
@@ -21,6 +23,7 @@ export class MaterialcmsComponent implements OnInit {
     "siteName",
     "Material_cost",
     "Material_status",
+    "Download",
     "Action",
   ];
   data: any;
@@ -117,6 +120,55 @@ export class MaterialcmsComponent implements OnInit {
       return "";
     }
   }
-  
+  download(row) {
+    const documentDefinition = {
+      content: [
+        {
+          text: 'Material Details',
+          style: 'header'
+        },
+        {
+          text: `Material Name: ${row.Material_name}`,
+          style: 'subheader'
+        },
+        {
+          text: `Material Quantity: ${row.Material_quantity}`,
+          style: 'subheader'
+        },
+        {
+          text: `Unit: ${row.unit}`,
+          style: 'subheader'
+        },
+        {
+          text: `Site Name: ${row.site_id.siteName}`,
+          style: 'subheader'
+        },
+        {
+          text: `Material Cost: ${row.Material_cost}`,
+          style: 'subheader'
+        },
+        {
+          text: `Material Status: ${row.Material_status}`,
+          style: 'subheader'
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center',
+          margin: [0, 0, 0, 20]
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 15, 0, 5]
+        }
+      }
+    };
+
+    const pdfDocGenerator = pdfMake.createPdf(documentDefinition);
+    pdfDocGenerator.download(`Material.pdf`);
+  }
   
 }

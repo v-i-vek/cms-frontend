@@ -29,7 +29,9 @@ serviceDelete(id:any){
 addService(data:any) {
   return this.http.post(this.baseUrl+"api/services",data)
 }
- 
+getUserSeervices() {
+  return this.http.get(this.baseUrl + "user/services")
+}
   }
   
   
