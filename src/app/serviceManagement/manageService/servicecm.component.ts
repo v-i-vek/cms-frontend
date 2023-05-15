@@ -126,7 +126,7 @@ export class servicecmComponent implements OnInit {
     }
   }
   getUserSeervices(): void {  
-    this.service.getUserSeervices().subscribe({
+     this.service.getUserSeervices().subscribe({
       next: (res: any) => {
         console.log("user services",res)
         this.dataSourceUser = new MatTableDataSource(res);
@@ -140,6 +140,6 @@ export class servicecmComponent implements OnInit {
         alert("error occured while loading the data")
       },
     });
-  }
+   }
   
 }
