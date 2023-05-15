@@ -3,6 +3,7 @@ import { ManageUserServiceService } from 'app/services/manageUserService.service
 import { Router } from '@angular/router';
 import { SerServiceService } from 'app/services/serService.service';
 import { HttpClient } from '@angular/common/http';
+import { response } from 'express';
 
 @Component({
   selector: 'app-userservices',
@@ -14,12 +15,10 @@ export class UserservicesComponent implements OnInit {
   userData:any;
   serviceDataDisplay: any[];
   selectedServices: any[] = [];
-  name: string;
-  description: string;
-  customize: string;
-  serviceimage: string;
+  
 
-  constructor(private serServiceService :SerServiceService, private http: HttpClient) {
+
+  constructor(private serServiceService :SerServiceService, private http: HttpClient,) {
     this.getserviceDetails();
   }
 
@@ -34,22 +33,37 @@ export class UserservicesComponent implements OnInit {
       }
     );
   }
+  addService(service: any){
+    console.log(service,"ttttttttt");
+    
+    if(!this.selectedServices.includes(service)) {
+      this.selectedServices.push(service);
+    } else{
 
-  addService() {
-    const newService = {
-      name: 'Service Name',
-      description: 'Service Description'
-    };
-  
-    this.http.post('http://localhost:3000/api/services', newService).subscribe(
-      (response) => {
-        console.log('Service added successfully');
-      },
-      (error) => {
-        console.error('Error adding service:', error);
-      }
-    );
+    }
   }
-}  
 
+  requestService(){
+    const userId = localStorage.getItem('tokenId')
+    const selectedServices = this.selectedServices.map((service)=>({
+      id: service.id,
+      name:service.name,
+      description: service.description
+    }));
+
+    const payload = {
+      selectedServices,
+      userId
+    };
+    this.http.post('http://localhost:3000/update-service',payload).subscribe(
+      (response: any)=>{
+        console.log('request sent successfull')
+      },
+      (error:any)=>{
+        console.log("error sending request:",error)
+      }
+    )
+  
+  }
+}
 
