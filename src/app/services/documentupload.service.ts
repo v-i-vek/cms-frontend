@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DocumentuploadService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://cms-s1i9.onrender.com';
   constructor(private http: HttpClient) { }
   postDocUpload(data:any){
     return this.http.post(this.baseUrl+'/docs',data)

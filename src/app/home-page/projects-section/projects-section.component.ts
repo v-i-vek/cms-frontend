@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsSectionComponent implements OnInit {
   SiteDataDisplay:any;
-  url: any = "http://localhost:3000/";
+  url: any = "https://cms-s1i9.onrender.com/";
 
   constructor(private siteManageService:SiteManageService) { 
     this.getSiteDetails()

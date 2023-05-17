@@ -25,7 +25,7 @@ export class siteComponent implements OnInit {
   ];
 
   
-  url: any = "http://localhost:3000/"; // for giving the path of the image
+  url: any = "https://cms-s1i9.onrender.com/"; // for giving the path of the image
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

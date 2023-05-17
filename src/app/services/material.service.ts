@@ -5,9 +5,11 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class MaterialService {
-  url = "http://localhost:3000/Postmaterial";
-  patchUrl = "http://localhost:3000/patchmaterial/";
-  deleteUrl = "http://localhost:3000/deletematerial/";
+
+  baseUrl = "https://cms-s1i9.onrender.com"
+  url = "https://cms-s1i9.onrender.com/Postmaterial";
+  patchUrl = "https://cms-s1i9.onrender.com/patchmaterial/";
+  deleteUrl = "https://cms-s1i9.onrender.com/deletematerial/";
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +18,7 @@ export class MaterialService {
   }
 
   getMaterial() {
-    return this.http.get("http://localhost:3000/getmaterial/");
+    return this.http.get("https://cms-s1i9.onrender.com/getmaterial/");
   }
 
   materialUpdate(id: any, data: any) {

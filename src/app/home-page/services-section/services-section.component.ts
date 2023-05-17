@@ -7,7 +7,7 @@ import { SerServiceService } from 'app/services/serService.service';
   styleUrls: ['./services-section.component.scss']
 })
 export class ServicesSectionComponent implements OnInit {
-  url: any = "http://localhost:3000/";
+  url: any = "https://cms-s1i9.onrender.com/";
   serviceDataDisplay: any;
   constructor(private serServiceService :SerServiceService) {
     this.getserviceDetails()

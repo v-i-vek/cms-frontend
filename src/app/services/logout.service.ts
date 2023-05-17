@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class LogoutService {
 
-  LogoutUrl="http://localhost:3001/logout";
+  LogoutUrl="https://cms-s1i9.onrender.com";
 
   constructor(private http:HttpClient) { }
 

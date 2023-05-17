@@ -16,7 +16,7 @@ export class DocumentuploadComponent implements OnInit {
   fileUpload: any
   Docname: any
   userDataup:any
-  url: any = "http://localhost:3000/";
+  url: any = "https://cms-s1i9.onrender.com/";
   constructor(@Inject(DOCUMENT) private _document: Document,public fb: FormBuilder, private documentuploadService: DocumentuploadService, public router: ActivatedRoute, private rout: Router) {
     this.uploadimageFrom = fb.group(
       {

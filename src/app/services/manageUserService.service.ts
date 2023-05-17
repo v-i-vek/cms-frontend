@@ -10,7 +10,7 @@ import { url } from 'inspector';
 export class ManageUserServiceService {
 
  Port = 3000
-public baseUrl = `http://localhost:${this.Port}/`;
+public baseUrl = `https://cms-s1i9.onrender.com/`;
 
  
 

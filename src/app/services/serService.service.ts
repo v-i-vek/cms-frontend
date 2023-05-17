@@ -7,7 +7,7 @@ import { url } from 'inspector';
 })
 export class SerServiceService {
   
-  baseUrl = 'http://localhost:3000/'
+  baseUrl = 'https://cms-s1i9.onrender.com/'
   
 
   constructor(private http : HttpClient) { }

@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://cms-s1i9.onrender.com'
   constructor(private http: HttpClient) { }
   getContacts(pageSize: number, currentPage: number) {
     const queryParams = `?pagesize=${pageSize}&page=${currentPage}`;
-    return this.http.get<{ message: string, contacts: any }>('http://localhost:3000/getcontact' + queryParams);
+    return this.http.get<{ message: string, contacts: any }>(`this.baseUrl`+ queryParams);
   }
 
   deleteContact(id: any): Observable<any> {

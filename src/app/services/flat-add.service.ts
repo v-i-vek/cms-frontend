@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FlatAddService {
-  baseUrl = "http://localhost:3000/";
+  baseUrl = "https://cms-s1i9.onrender.com";
 
   constructor(private http :HttpClient) { }
 

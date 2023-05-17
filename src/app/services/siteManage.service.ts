@@ -6,7 +6,7 @@ import { data } from "jquery";
   providedIn: "root",
 })
 export class SiteManageService {
-  baseUrl = "http://localhost:3000/";
+  baseUrl = "https://cms-s1i9.onrender.com/";
  
 
   constructor(private http: HttpClient) {}

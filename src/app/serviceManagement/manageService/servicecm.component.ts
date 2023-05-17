@@ -21,7 +21,7 @@ export class servicecmComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
 
 
-  url: any = "http://localhost:3000/";
+  url: any = "https://cms-s1i9.onrender.com/";
 
   siteData:any;
   userName: string = '';
@@ -29,7 +29,7 @@ export class servicecmComponent implements OnInit {
   description: string = ''
   
 
-  displayedUserColumns: string[] = ["User Name","Services Name",'Description'];
+  displayedUserColumns: string[] = ["User Name","Services Name",'Description',"action"];
   dataSourceUser!: MatTableDataSource<any>;
 
 
