@@ -20,7 +20,7 @@ serviceGet(){
     }
 serviceUpdate(data:any,id:any){
   
-      return this.http.patch(this.baseUrl+"services"+id,data)
+      return this.http.patch(this.baseUrl+"services/"+id,data)
     }
 serviceDelete(id:any){
     

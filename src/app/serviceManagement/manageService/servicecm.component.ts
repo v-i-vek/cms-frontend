@@ -63,7 +63,7 @@ export class servicecmComponent implements OnInit {
     this.dialog
       .open(DialogSerComponent, {
         width: "30%",
-        data: row,
+        data: {row:row},
       })
       .afterClosed()
       .subscribe((val) => {
